@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _site        # Quarto’s default output folder
+
+website:
+  title: "PSC Wiki"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - pages/getting-started.qmd
+      - pages/glossary.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: assets/css/styles.css
+
+resources:
+  - downloads/**           # copy PDFs, etc. to _site unchanged
+  - assets/**
