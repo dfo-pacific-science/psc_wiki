@@ -64,37 +64,7 @@
     "href": "pages/regional-management-and-assessment-frameworks.html",
     "title": "Regional Management and Assessment Frameworks",
     "section": "",
-    "text": "This page provides information about regional management and assessment frameworks for Pacific salmon conservation.\n\n\nContent about regional management and assessment frameworks will be added here.\n\n\n\n\nFramework structure\nAssessment methodologies\nManagement strategies\nRegional considerations\n\n\n\n\nAdditional resources and references will be listed here.",
-    "crumbs": [
-      "Regional Management and Assessment Frameworks"
-    ]
-  },
-  {
-    "objectID": "pages/regional-management-and-assessment-frameworks.html#overview",
-    "href": "pages/regional-management-and-assessment-frameworks.html#overview",
-    "title": "Regional Management and Assessment Frameworks",
-    "section": "",
-    "text": "Content about regional management and assessment frameworks will be added here.",
-    "crumbs": [
-      "Regional Management and Assessment Frameworks"
-    ]
-  },
-  {
-    "objectID": "pages/regional-management-and-assessment-frameworks.html#key-components",
-    "href": "pages/regional-management-and-assessment-frameworks.html#key-components",
-    "title": "Regional Management and Assessment Frameworks",
-    "section": "",
-    "text": "Framework structure\nAssessment methodologies\nManagement strategies\nRegional considerations",
-    "crumbs": [
-      "Regional Management and Assessment Frameworks"
-    ]
-  },
-  {
-    "objectID": "pages/regional-management-and-assessment-frameworks.html#resources",
-    "href": "pages/regional-management-and-assessment-frameworks.html#resources",
-    "title": "Regional Management and Assessment Frameworks",
-    "section": "",
-    "text": "Additional resources and references will be listed here.",
+    "text": "Legislative, Reg\nRegulatory and legislative frameworks governing Pacific salmon management and conservation policies.\n📥 Download Legislative, Reg\n\n\n\nOverall Principles\nComprehensive overview of the fundamental principles guiding Pacific salmon conservation and management strategies.\n📥 Download Overall Principles\n\n\n\nChinook MAF\nManagement and Assessment Framework specifically designed for Chinook salmon populations, including stock assessment methodologies and management protocols.\n📥 Download Chinook MAF\n\n\n\nCoho MAF\nManagement and Assessment Framework for Coho salmon, detailing population assessment techniques and conservation measures.\n📥 Download Coho MAF\n\n\n\nSockeye MAF\nManagement and Assessment Framework for Sockeye salmon, covering stock evaluation methods and management recommendations.\n📥 Download Sockeye MAF\n\n\n\nChum MAF\nManagement and Assessment Framework for Chum salmon, including assessment protocols and management guidelines.\n📥 Download Chum MAF\n\n\n\nPink MAF\nManagement and Assessment Framework for Pink salmon, detailing population dynamics assessment and management strategies.\n📥 Download Pink MAF",
     "crumbs": [
       "Regional Management and Assessment Frameworks"
     ]
@@ -291,7 +261,7 @@
     "href": "pages/stock-management-unit-profiles.html",
     "title": "Stock Management Unit Profiles",
     "section": "",
-    "text": "This page contains profiles of stock management units for Pacific salmon conservation.\n\n\nStock management units are fundamental components of salmon conservation planning and management.\n\n\n\n\nChinook salmon units\nCoho salmon units\nChum salmon units\nPink salmon units\nSockeye salmon units\nSteelhead units\n\n\n\n\nKey factors in stock management unit planning and implementation.\n\n\n\nLinks to detailed profiles and supporting documentation.",
+    "text": "Attempting to read file: ../assets/data/smu_profiles.xlsx\nFile exists: True\nFile is readable: True\nSuccessfully loaded 69 SMU records",
     "crumbs": [
       "Stock Management Unit Profiles"
     ]
@@ -300,38 +270,48 @@
     "objectID": "pages/stock-management-unit-profiles.html#overview",
     "href": "pages/stock-management-unit-profiles.html#overview",
     "title": "Stock Management Unit Profiles",
-    "section": "",
-    "text": "Stock management units are fundamental components of salmon conservation planning and management.",
+    "section": "Overview",
+    "text": "Overview\nThis page contains profiles of Stock Management Unit Profiles for Pacific salmon conservation. The data includes information on 69 stock management units.",
     "crumbs": [
       "Stock Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/stock-management-unit-profiles.html#profile-categories",
-    "href": "pages/stock-management-unit-profiles.html#profile-categories",
+    "objectID": "pages/stock-management-unit-profiles.html#search-and-filter",
+    "href": "pages/stock-management-unit-profiles.html#search-and-filter",
     "title": "Stock Management Unit Profiles",
-    "section": "",
-    "text": "Chinook salmon units\nCoho salmon units\nChum salmon units\nPink salmon units\nSockeye salmon units\nSteelhead units",
+    "section": "Search and Filter",
+    "text": "Search and Filter\n\n\n\n\n    \n    \n        All Species\n    \n    \n        All Regions",
     "crumbs": [
       "Stock Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/stock-management-unit-profiles.html#management-considerations",
-    "href": "pages/stock-management-unit-profiles.html#management-considerations",
+    "objectID": "pages/stock-management-unit-profiles.html#smu-data-table",
+    "href": "pages/stock-management-unit-profiles.html#smu-data-table",
     "title": "Stock Management Unit Profiles",
-    "section": "",
-    "text": "Key factors in stock management unit planning and implementation.",
+    "section": "SMU Data Table",
+    "text": "SMU Data Table\n\nClick each row to view details\n\n\n\n\n\n\n\nSMU Name\nSpecies\nRegion\nSMU Status\nAvg. Abundance\nAvg. Catch\nAvg. ER\n\n\n\n\nALSEK CHINOOK SALMON\nChinook\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nALSEK COHO SALMON\nCoho\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nALSEK SOCKEYE SALMON\nSockeye\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nCENTRAL COAST CHINOOK SALMON\nChinook\nNORTH COAST\nUncertain\nN/A\nN/A\nAtnarko: 0.45\n\n\nCENTRAL COAST CHUM SALMON\nChum\nNORTH COAST\nN/A\nN/A\nN/A\n0.4\n\n\nCENTRAL COAST COHO SALMON\nCoho\nNORTH COAST\nUncertain\nN/A\nN/A\n0.1\n\n\nCENTRAL COAST PINK SALMON\nPink\nNORTH COAST\nN/A\nN/A\nN/A\n0.2\n\n\nCENTRAL COAST SOCKEYE SALMON\nSockeye\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nECVI/MAINLAND PINK SALMON - EVEN\nPink\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nECVI/MAINLAND PINK SALMON - ODD\nPink\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nECVI/MAINLAND SOCKEYE SALMON\nSockeye\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nFRASER CHUM SALMON\nChum\nFRASER AND INTERIOR\nCautious\nN/A\nN/A\nN/A\n\n\nFRASER FALL RUN 41 CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nGR\nN/A\nN/A\n0.25\n\n\nFRASER PINK SALMON - ODD\nPink\nFRASER AND INTERIOR\nHealthy\nN/A\nN/A\n0.5533531549388834\n\n\nFRASER SOCKEYE SALMON - EARLY STUART\nSockeye\nFRASER AND INTERIOR\nFraser Sockeye - Early Stuart: 1 Red\nN/A\nN/A\n0.21084950841930228\n\n\nFRASER SOCKEYE SALMON - EARLY SUMMER\nSockeye\nFRASER AND INTERIOR\nFraser Sockeye - Early Summer: 2 Red 4 amber 3 amber/green 1 green\nN/A\nN/A\n0.3044679073011699\n\n\nFRASER SOCKEYE SALMON - LATE\nSockeye\nFRASER AND INTERIOR\nCritical\nN/A\nN/A\n0.3743142281046951\n\n\nFRASER SOCKEYE SALMON - SUMMER\nSockeye\nFRASER AND INTERIOR\nCritical\nN/A\nN/A\n0.3543114665931571\n\n\nFRASER SPRING RUN 42 CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nRED\nN/A\nN/A\n0.22\n\n\nFRASER SPRING RUN 52 CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nDD/RED\nN/A\nN/A\n0.3\n\n\nFRASER SUMMER RUN 41 CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nDD/GR\nN/A\nN/A\n0.45\n\n\nFRASER SUMMER RUN 52 CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nDD/AMB/RED\nN/A\nN/A\n0.3\n\n\nHAIDA GWAII CHINOOK SALMON\nChinook\nNORTH COAST\nUncertain\nN/A\nN/A\nN/A\n\n\nHAIDA GWAII CHUM SALMON\nChum\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nHAIDA GWAII COHO SALMON\nCoho\nNORTH COAST\nUncertain\nN/A\nN/A\n0.1\n\n\nHAIDA GWAII PINK SALMON\nPink\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nHAIDA GWAII SOCKEYE SALMON\nSockeye\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nINNER SOUTH COAST CHUM SALMON\nChum\nSOUTH COAST\nCautious\nN/A\nN/A\nN/A\n\n\nINTERIOR FRASER COHO SALMON\nCoho\nFRASER AND INTERIOR\nCautious\nN/A\nN/A\n0.11\n\n\nJOHNSTONE STRAIT/MAINLAND INLET COHO SALMON\nCoho\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nLOWER FRASER COHO SALMON\nCoho\nFRASER AND INTERIOR\nN/A\nN/A\nN/A\n0.15\n\n\nLOWER GEORGIA STRAIT CHINOOK SALMON\nChinook\nSOUTH COAST\nTBD\nN/A\nN/A\n0.63\n\n\nMAINLAND INLET CHINOOK SALMON\nChinook\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nMIDDLE GEORGIA STRAIT CHINOOK SALMON\nChinook\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nNASS CHINOOK SALMON\nChinook\nNORTH COAST\nUncertain\nN/A\nN/A\nN/A\n\n\nNASS CHUM SALMON\nChum\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nNASS COHO SALMON\nCoho\nNORTH COAST\nUncertain\nN/A\nN/A\n0.12\n\n\nNASS PINK SALMON\nPink\nNORTH COAST\nHealthy\nN/A\nN/A\nNass: 0.19\n\n\nNASS SOCKEYE SALMON\nSockeye\nNORTH COAST\nHealthy\nN/A\nN/A\nNass: 0.42\n\n\nOKANAGAN CHINOOK SALMON\nChinook\nFRASER AND INTERIOR\nCritical\nN/A\nN/A\nN/A\n\n\nOKANAGAN SOCKEYE SALMON\nSockeye\nFRASER AND INTERIOR\nN/A\nN/A\nN/A\nN/A\n\n\nPORCUPINE CHINOOK SALMON\nChinook\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nPORCUPINE CHUM SALMON\nChum\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nPORCUPINE COHO SALMON\nCoho\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nRIVERS/SMITH SOCKEYE SALMON\nSockeye\nNORTH COAST\nN/A\nN/A\nN/A\nRivers: 0.05\n\n\nSKEENA - NASS CHUM COASTAL\nChum\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nSKEENA CHINOOK SALMON\nChinook\nNORTH COAST\nUncertain\nN/A\nN/A\nSkeena: 0.44\n\n\nSKEENA CHUM SALMON\nChum\nNORTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nSKEENA COHO SALMON\nCoho\nNORTH COAST\nUncertain\nN/A\nN/A\n0.54\n\n\nSKEENA PINK SALMON\nPink\nNORTH COAST\nHealthy\nN/A\nN/A\nSkeena: 0.49\n\n\nSKEENA SOCKEYE SALMON\nSockeye\nNORTH COAST\nHealthy\nN/A\nN/A\n0.55\n\n\nSTIKINE CHINOOK SALMON\nChinook\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nSTIKINE COHO SALMON\nCoho\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nSTIKINE SOCKEYE SALMON\nSockeye\nYUKON TRANSBOUNDARY\nHealthy\nN/A\nN/A\nN/A\n\n\nSTRAIT OF GEORGIA COHO SALMON\nCoho\nSOUTH COAST\nN/A\nN/A\nN/A\n0.06\n\n\nTAKU CHINOOK SALMON\nChinook\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nTAKU COHO SALMON\nCoho\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nTAKU SOCKEYE SALMON\nSockeye\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nTRANSBOUNDARY CHUM SALMON\nChum\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nTRANSBOUNDARY PINK SALMON\nPink\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\nUPPER GEORGIA STRAIT CHINOOK SALMON\nChinook\nSOUTH COAST\nDD\nN/A\nN/A\n0.39\n\n\nWCVI - BARKLEY SOCKEYE SALMON\nSockeye\nSOUTH COAST\nUncertain\nN/A\nN/A\nGCL: 0.05\n\n\nWCVI - OTHER SOCKEYE SALMON\nSockeye\nSOUTH COAST\nN/A\nN/A\nN/A\n0.05\n\n\nWCVI CHINOOK SALMON\nChinook\nSOUTH COAST\nCritical\nN/A\nN/A\n0.65\n\n\nWCVI CHUM SALMON\nChum\nSOUTH COAST\nN/A\nN/A\nN/A\n0.2\n\n\nWCVI COHO SALMON\nCoho\nSOUTH COAST\nN/A\nN/A\nN/A\n0.11\n\n\nWCVI PINK SALMON\nPink\nSOUTH COAST\nN/A\nN/A\nN/A\nN/A\n\n\nYUKON CHINOOK SALMON\nChinook\nYUKON TRANSBOUNDARY\nCritical\nN/A\nN/A\nN/A\n\n\nYUKON CHUM SALMON\nChum\nYUKON TRANSBOUNDARY\nN/A\nN/A\nN/A\nN/A\n\n\n\n\n\n\n\n\n\n\n\n    ← Back to Table",
     "crumbs": [
       "Stock Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/stock-management-unit-profiles.html#resources",
-    "href": "pages/stock-management-unit-profiles.html#resources",
+    "objectID": "pages/stock-management-unit-profiles.html#data-export",
+    "href": "pages/stock-management-unit-profiles.html#data-export",
     "title": "Stock Management Unit Profiles",
-    "section": "",
-    "text": "Links to detailed profiles and supporting documentation.",
+    "section": "Data Export",
+    "text": "Data Export\n\n\n\n\n    Export Data\n    Download as CSV",
+    "crumbs": [
+      "Stock Management Unit Profiles"
+    ]
+  },
+  {
+    "objectID": "pages/stock-management-unit-profiles.html#summary-statistics",
+    "href": "pages/stock-management-unit-profiles.html#summary-statistics",
+    "title": "Stock Management Unit Profiles",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics",
     "crumbs": [
       "Stock Management Unit Profiles"
     ]

@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,9 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/smu_profiles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -165,16 +169,14 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#stock-management-unit-profiles" id="toc-stock-management-unit-profiles" class="nav-link active" data-scroll-target="#stock-management-unit-profiles">Stock Management Unit Profiles</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#profile-categories" id="toc-profile-categories" class="nav-link" data-scroll-target="#profile-categories">Profile Categories</a></li>
-  <li><a href="#management-considerations" id="toc-management-considerations" class="nav-link" data-scroll-target="#management-considerations">Management Considerations</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#search-and-filter" id="toc-search-and-filter" class="nav-link" data-scroll-target="#search-and-filter">Search and Filter</a></li>
+  <li><a href="#smu-data-table" id="toc-smu-data-table" class="nav-link" data-scroll-target="#smu-data-table">SMU Data Table</a></li>
+  <li><a href="#data-export" id="toc-data-export" class="nav-link" data-scroll-target="#data-export">Data Export</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/stock-management-unit-profiles.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/stock-management-unit-profiles.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/stock-management-unit-profiles.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/stock-management-unit-profiles.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -198,34 +200,936 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="stock-management-unit-profiles" class="level1">
-<h1>Stock Management Unit Profiles</h1>
-<p>This page contains profiles of stock management units for Pacific salmon conservation.</p>
+<div id="71dc98ee" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Attempting to read file: ../assets/data/smu_profiles.xlsx
+File exists: True
+File is readable: True
+Successfully loaded 69 SMU records</code></pre>
+</div>
+</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Stock management units are fundamental components of salmon conservation planning and management.</p>
+<p>This page contains profiles of <strong>Stock Management Unit Profiles</strong> for Pacific salmon conservation. The data includes information on 69 stock management units.</p>
 </section>
-<section id="profile-categories" class="level2">
-<h2 class="anchored" data-anchor-id="profile-categories">Profile Categories</h2>
-<ul>
-<li>Chinook salmon units</li>
-<li>Coho salmon units</li>
-<li>Chum salmon units</li>
-<li>Pink salmon units</li>
-<li>Sockeye salmon units</li>
-<li>Steelhead units</li>
-</ul>
+<section id="search-and-filter" class="level2">
+<h2 class="anchored" data-anchor-id="search-and-filter">Search and Filter</h2>
+<div id="3bd46385" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display no-overflow-x">
+
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search SMUs..." onkeyup="filterTable()">
+    <select id="speciesFilter" onchange="filterTable()">
+        <option value="">All Species</option>
+    </select>
+    <select id="regionFilter" onchange="filterTable()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+</div>
+</div>
 </section>
-<section id="management-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="management-considerations">Management Considerations</h2>
-<p>Key factors in stock management unit planning and implementation.</p>
+<section id="smu-data-table" class="level2">
+<h2 class="anchored" data-anchor-id="smu-data-table">SMU Data Table</h2>
+<section id="click-each-row-to-view-details" class="level6">
+<h6 class="anchored" data-anchor-id="click-each-row-to-view-details">Click each row to view details</h6>
+<div id="ef52394d" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="table-wrapper">
+
+<table id="smuTable" class="display-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">SMU Name</th>
+<th data-quarto-table-cell-role="th">Species</th>
+<th data-quarto-table-cell-role="th">Region</th>
+<th data-quarto-table-cell-role="th">SMU Status</th>
+<th data-quarto-table-cell-role="th">Avg. Abundance</th>
+<th data-quarto-table-cell-role="th">Avg. Catch</th>
+<th data-quarto-table-cell-role="th">Avg. ER</th>
+</tr>
+</thead>
+<tbody>
+<tr class="clickable-row odd" onclick="showDetails(0)">
+<td>ALSEK CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(1)">
+<td>ALSEK COHO SALMON</td>
+<td>Coho</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(2)">
+<td>ALSEK SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(3)">
+<td>CENTRAL COAST CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Atnarko: 0.45</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(4)">
+<td>CENTRAL COAST CHUM SALMON</td>
+<td>Chum</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.4</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(5)">
+<td>CENTRAL COAST COHO SALMON</td>
+<td>Coho</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.1</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(6)">
+<td>CENTRAL COAST PINK SALMON</td>
+<td>Pink</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.2</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(7)">
+<td>CENTRAL COAST SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(8)">
+<td>ECVI/MAINLAND PINK SALMON - EVEN</td>
+<td>Pink</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(9)">
+<td>ECVI/MAINLAND PINK SALMON - ODD</td>
+<td>Pink</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(10)">
+<td>ECVI/MAINLAND SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(11)">
+<td>FRASER CHUM SALMON</td>
+<td>Chum</td>
+<td>FRASER AND INTERIOR</td>
+<td>Cautious</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(12)">
+<td>FRASER FALL RUN 41 CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>GR</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.25</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(13)">
+<td>FRASER PINK SALMON - ODD</td>
+<td>Pink</td>
+<td>FRASER AND INTERIOR</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.5533531549388834</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(14)">
+<td>FRASER SOCKEYE SALMON - EARLY STUART</td>
+<td>Sockeye</td>
+<td>FRASER AND INTERIOR</td>
+<td>Fraser Sockeye - Early Stuart: 1 Red</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.21084950841930228</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(15)">
+<td>FRASER SOCKEYE SALMON - EARLY SUMMER</td>
+<td>Sockeye</td>
+<td>FRASER AND INTERIOR</td>
+<td>Fraser Sockeye - Early Summer: 2 Red 4 amber 3 amber/green 1 green</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.3044679073011699</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(16)">
+<td>FRASER SOCKEYE SALMON - LATE</td>
+<td>Sockeye</td>
+<td>FRASER AND INTERIOR</td>
+<td>Critical</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.3743142281046951</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(17)">
+<td>FRASER SOCKEYE SALMON - SUMMER</td>
+<td>Sockeye</td>
+<td>FRASER AND INTERIOR</td>
+<td>Critical</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.3543114665931571</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(18)">
+<td>FRASER SPRING RUN 42 CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>RED</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.22</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(19)">
+<td>FRASER SPRING RUN 52 CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>DD/RED</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.3</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(20)">
+<td>FRASER SUMMER RUN 41 CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>DD/GR</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.45</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(21)">
+<td>FRASER SUMMER RUN 52 CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>DD/AMB/RED</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.3</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(22)">
+<td>HAIDA GWAII CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(23)">
+<td>HAIDA GWAII CHUM SALMON</td>
+<td>Chum</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(24)">
+<td>HAIDA GWAII COHO SALMON</td>
+<td>Coho</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.1</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(25)">
+<td>HAIDA GWAII PINK SALMON</td>
+<td>Pink</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(26)">
+<td>HAIDA GWAII SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(27)">
+<td>INNER SOUTH COAST CHUM SALMON</td>
+<td>Chum</td>
+<td>SOUTH COAST</td>
+<td>Cautious</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(28)">
+<td>INTERIOR FRASER COHO SALMON</td>
+<td>Coho</td>
+<td>FRASER AND INTERIOR</td>
+<td>Cautious</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.11</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(29)">
+<td>JOHNSTONE STRAIT/MAINLAND INLET COHO SALMON</td>
+<td>Coho</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(30)">
+<td>LOWER FRASER COHO SALMON</td>
+<td>Coho</td>
+<td>FRASER AND INTERIOR</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.15</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(31)">
+<td>LOWER GEORGIA STRAIT CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>SOUTH COAST</td>
+<td>TBD</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.63</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(32)">
+<td>MAINLAND INLET CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(33)">
+<td>MIDDLE GEORGIA STRAIT CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(34)">
+<td>NASS CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(35)">
+<td>NASS CHUM SALMON</td>
+<td>Chum</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(36)">
+<td>NASS COHO SALMON</td>
+<td>Coho</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.12</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(37)">
+<td>NASS PINK SALMON</td>
+<td>Pink</td>
+<td>NORTH COAST</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Nass: 0.19</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(38)">
+<td>NASS SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>NORTH COAST</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Nass: 0.42</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(39)">
+<td>OKANAGAN CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>FRASER AND INTERIOR</td>
+<td>Critical</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(40)">
+<td>OKANAGAN SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>FRASER AND INTERIOR</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(41)">
+<td>PORCUPINE CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(42)">
+<td>PORCUPINE CHUM SALMON</td>
+<td>Chum</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(43)">
+<td>PORCUPINE COHO SALMON</td>
+<td>Coho</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(44)">
+<td>RIVERS/SMITH SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Rivers: 0.05</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(45)">
+<td>SKEENA - NASS CHUM COASTAL</td>
+<td>Chum</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(46)">
+<td>SKEENA CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Skeena: 0.44</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(47)">
+<td>SKEENA CHUM SALMON</td>
+<td>Chum</td>
+<td>NORTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(48)">
+<td>SKEENA COHO SALMON</td>
+<td>Coho</td>
+<td>NORTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.54</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(49)">
+<td>SKEENA PINK SALMON</td>
+<td>Pink</td>
+<td>NORTH COAST</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Skeena: 0.49</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(50)">
+<td>SKEENA SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>NORTH COAST</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.55</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(51)">
+<td>STIKINE CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(52)">
+<td>STIKINE COHO SALMON</td>
+<td>Coho</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(53)">
+<td>STIKINE SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>Healthy</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(54)">
+<td>STRAIT OF GEORGIA COHO SALMON</td>
+<td>Coho</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.06</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(55)">
+<td>TAKU CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(56)">
+<td>TAKU COHO SALMON</td>
+<td>Coho</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(57)">
+<td>TAKU SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(58)">
+<td>TRANSBOUNDARY CHUM SALMON</td>
+<td>Chum</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(59)">
+<td>TRANSBOUNDARY PINK SALMON</td>
+<td>Pink</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(60)">
+<td>UPPER GEORGIA STRAIT CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>SOUTH COAST</td>
+<td>DD</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.39</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(61)">
+<td>WCVI - BARKLEY SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>SOUTH COAST</td>
+<td>Uncertain</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>GCL: 0.05</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(62)">
+<td>WCVI - OTHER SOCKEYE SALMON</td>
+<td>Sockeye</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.05</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(63)">
+<td>WCVI CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>SOUTH COAST</td>
+<td>Critical</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.65</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(64)">
+<td>WCVI CHUM SALMON</td>
+<td>Chum</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.2</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(65)">
+<td>WCVI COHO SALMON</td>
+<td>Coho</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>0.11</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(66)">
+<td>WCVI PINK SALMON</td>
+<td>Pink</td>
+<td>SOUTH COAST</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row even" onclick="showDetails(67)">
+<td>YUKON CHINOOK SALMON</td>
+<td>Chinook</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>Critical</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="clickable-row odd" onclick="showDetails(68)">
+<td>YUKON CHUM SALMON</td>
+<td>Chum</td>
+<td>YUKON TRANSBOUNDARY</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="04287e4b" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to Table</button>
+    <div id="detailContent"></div>
+</div>
+</div>
+</div>
+<div id="e1ccfb68" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<script>
+const smuData = [{"Region":"YUKON TRANSBOUNDARY","Species":"Chinook","SMU Name":"ALSEK CHINOOK SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"Klukshu: S-R, Alsek: S-R","USR":"Klukshu: 1000 ESC-MSY, Alsek: 4700 ESC-MSY","RR":null,"FRP-L":"Alsek Chinook: 3500.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Klukshu: Terminal: F-ESC, Alsek: Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Coho","SMU Name":"ALSEK COHO SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"Klukshu: UND","USR":"Klukshu: UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Klukshu: Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Sockeye","SMU Name":"ALSEK SOCKEYE SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"Klukshu: S-R, Alsek: S-R","USR":"Klukshu: 9700 ESC-MSY, Alsek: 29700 ESC-MSY","RR":null,"FRP-L":"Alsek Sockeye: 24000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Klukshu: Terminal: F-ESC, Alsek: Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chinook","SMU Name":"CENTRAL COAST CHINOOK SALMON","No. Cus":8,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"Atnarko: UND","USR":"Atnarko: 5000 ESC-MSY","RR":"No Healthy, Cautious, Critical or Uncertain Removal Zone has been determined.","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Atnarko: 0.45","Harvest Control Rules":"Atnarko: mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chum","SMU Name":"CENTRAL COAST CHUM SALMON","No. Cus":9,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"T-S","USR":"ESC-MEG","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.4","Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Coho","SMU Name":"CENTRAL COAST COHO SALMON","No. Cus":8,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"UND","USR":"UND","RR":"No removal reference for Health, Cautious,  Critical, or Uncertain zones. The stock is harvested within approved rates\/levels","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.1","Harvest Control Rules":"Harvest decision rules that aim to control exploitation have not been developed","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Pink","SMU Name":"CENTRAL COAST PINK SALMON","No. Cus":5,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.2","Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Sockeye","SMU Name":"CENTRAL COAST SOCKEYE SALMON","No. Cus":78,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Pink","SMU Name":"ECVI\/MAINLAND PINK SALMON - EVEN","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Pink","SMU Name":"ECVI\/MAINLAND PINK SALMON - ODD","No. Cus":4,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"2 years","SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Sockeye","SMU Name":"ECVI\/MAINLAND SOCKEYE SALMON","No. Cus":18,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"The smolts migrate north through Johnstone Strait to the North Pacific Ocean. During their first year at sea, Sockeye Salmon from British Columbia have been caught along the Alaska Peninsula during summer and fall, and near the Aleutian Islands during win","Age at Return":"FULMORE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., HEYDON: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., KAKWEIKEN: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., LOOSE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., MACKENZIE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., PHILLIPS: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., SAKINAW: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., TZOONIE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., VILLAGE BAY: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., IDA\/BONANZA: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., NAHWITTI: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., NIMPKISH: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., QUATSE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., SCHOEN: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., SHUSHARTIE: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., WOSS: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., NAHWITTI: 2 years, PACK: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn., VERNON: Most Sakinaw Sockeye Salmon mature after four years, after spending two years rearing in the lake and two years at sea before returning to Sakinaw Lake to spawn.","SMU Status":null,"LRP":"2440","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chum","SMU Name":"FRASER CHUM SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Cautious","LRP":"T-S","USR":null,"RR":"RR in the Healthy Zone: When terminal run size is 916,000 to 1,050,000: commercial catch not to exceed 10% of the terminal run size. When terminal run size is >1,050,000: commercial catch not to exceed 15% of the terminal run size. RR in the Cautious Zone","FRP-L":"Fraser River Chum: 500000.0","FRP-U":"Fraser River Chum: 1050000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Harvest decision rules have been  developed and implemented, but not evaluated.Harvest rate at or below removal reference.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"FRASER FALL RUN 41 CHINOOK SALMON","No. Cus":2,"Run Timing":"FALL","Freshwater Life History":"Migrate to the Fraser estuary immediately following emergence. Harrison River Chinook Salmon rear in the Fraser estuary from March until June, where the mid-intertidal (e.g. eelgrass meadows) and emergent vegetation (e.g. sedges, rushes, and riparian tree","Ocean Migration":"Ocean-type FRC rear in coastal waters for most of their life at sea and typically do not disperse more than 1,000 km from the Fraser River.","Age at Return":"4 years","SMU Status":"GR","LRP":"S-R","USR":"ESC-MSY","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.25","Harvest Control Rules":"mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Pink","SMU Name":"FRASER PINK SALMON - ODD","No. Cus":1,"Run Timing":null,"Freshwater Life History":"Migrate to ocean in spring as fry","Ocean Migration":"Northern Gulf of Alaska","Age at Return":"Obligate two-year lifecycle","SMU Status":"Healthy","LRP":"UND","USR":"Very high probability (>99%) that current (2023) spawner (escapement) abundance is above the median upper stock reference (USR) and both short and longer term escapement trends are increasing. 80% Smsy=4.6M spawners (80% CI: 3.6 - 6.1M).","RR":"UMSY = 56% (80% CI: 47% - 63%). Compare to annual estimates of exploitation rate","FRP-L":"FRP-LOWER Sgen = 1.7M spawners (80% CI: 1.1M \u2013 2.7M). Compare to full posterior distribution of spawners in last year of escapement","FRP-U":"Fraser Pink: 20000000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.5533531549388834","Harvest Control Rules":"The current harvest control rule (HCR) for Fraser Pink salmon was first implemented in 1987. It consists of three management zones: 1) at run sizes below 7.059 million pinks, the the maximum allowable exploitation rate increases from 0% when there are no Pink salmon to 15% at 7.059 million Pinks, 2) at run sizes between 7.059 and 20 million Pinks, there is a fixed escapement goal of 6 million spawners, and 3) at run sizes greater than 20 million Pinks, the maximum exploitation rate is 70%.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Sockeye","SMU Name":"FRASER SOCKEYE SALMON - EARLY STUART","No. Cus":1,"Run Timing":"EARLY STUART","Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Fraser Sockeye - Early Stuart: 1 Red","LRP":"10000.0 S-R","USR":"ESC-MSY","RR":"Fraser Sockeye - Early Stuart: 0.6","FRP-L":"Fraser Sockeye - Early Stuart: 108000.0","FRP-U":"Fraser Sockeye - Early Stuart: 270000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.21084950841930228","Harvest Control Rules":"mixed: V-HR\/CONT, Terminal: V-ER\/CONT","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Sockeye","SMU Name":"FRASER SOCKEYE SALMON - EARLY SUMMER","No. Cus":12,"Run Timing":"SUMMER","Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Fraser Sockeye - Early Summer: 2 Red\n4 amber\n3 amber\/green\n1 green","LRP":"54000.0 S-R","USR":"ESC-MSY","RR":"Fraser Sockeye - Early Summer: 0.6","FRP-L":"Fraser Sockeye - Early Summer: 100000.0","FRP-U":"Fraser Sockeye - Early Summer: 250000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.3044679073011699","Harvest Control Rules":"mixed: V-HR\/CONT, Terminal: V-ER\/CONT","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Sockeye","SMU Name":"FRASER SOCKEYE SALMON - LATE","No. Cus":6,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Critical","LRP":"180000.0 S-R","USR":"601000","RR":"RR Healthy Zone: A 50% Total Allowable Mortality Cap has been identified for this stock that varies annually and is published in the annual IFMP. RR Cautious Zone: An abundance based control rule has been developed for this stock that varies with aggregat","FRP-L":"Fraser Sockeye - Late: 300000.0","FRP-U":"Fraser Sockeye - Late: 750000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.3743142281046951","Harvest Control Rules":"Harvest decision rules have been developed, implemented and evaluated. An abundance based control rule has been developed for this stock. It is managed based upon in-season abundance estimates. Refer to Pestal, G., et al. 2011. Updated Methods for Assessing Harvest Rules for Fraser River Sockeye Salmon (Oncorhynchus Nerka). CSAS Res. Doc. 2011\/133. Harvest rate at or below removal reference.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Sockeye","SMU Name":"FRASER SOCKEYE SALMON - SUMMER","No. Cus":7,"Run Timing":"SUMMER","Freshwater Life History":"Lake Type","Ocean Migration":null,"Age at Return":null,"SMU Status":"Critical","LRP":"59000.0 S-R","USR":"2100000","RR":"RR Healthy Zone: A 50% Total Allowable Mortality Cap has been identified for this stock.  RR Cautious Zone: An abundance based control rule has been developed for this stock. . RR Critical Zone: A low abundance exploitation rate (LAER) of 10% has been ide","FRP-L":"Fraser Sockeye - Summer: 1250000.0","FRP-U":"Fraser Sockeye - Summer: 3125000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.3543114665931571","Harvest Control Rules":"Harvest decision rules have been developed, implemented and evaluated","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"FRASER SPRING RUN 42 CHINOOK SALMON","No. Cus":2,"Run Timing":"SPRING","Freshwater Life History":"After one year in freshwater, juvenile stream-type Chinook Salmon from the interior and lower Fraser systems migrate downstream in the spring and early summer and enter the Strait of Georgia. Nearly all FRC spend the first few months in the Salish Sea and","Ocean Migration":"Stream-type FRC tend to have the broadest marine distribution and are generally found more northerly and westerly than ocean-type variants, and catches have been reported as far north as the Bering Sea.In general, stream-type Chinook Salmon spend their fi","Age at Return":"4 years","SMU Status":"RED","LRP":"LRP for CK-17= 4,000; CK-16= 1,000.","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.22","Harvest Control Rules":"Fraser Spring 42 SMU, management measures are in place to \u2018minimize\u2019 incidental harvest of the stock. However, no specific stock objectives are set for either escapement or exploitation rate and it is unclear how harvest is adjusted for changes in either stock status or impacting fisheries. There is no specific harvest control rule.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"FRASER SPRING RUN 52 CHINOOK SALMON","No. Cus":5,"Run Timing":"SPRING","Freshwater Life History":"After one year in freshwater, juvenile stream-type Chinook Salmon from the interior and lower Fraser systems migrate downstream in the spring and early summer and enter the Strait of Georgia. Nearly all FRC spend the first few months in the Salish Sea and","Ocean Migration":"Stream-type FRC tend to have the broadest marine distribution and are generally found more northerly and westerly than ocean-type variants, and catches have been reported as far north as the Bering Sea.In general, stream-type Chinook Salmon spend their fi","Age at Return":"5 years","SMU Status":"DD\/RED","LRP":"LRP for CK-4,8,18= 1,000. LRP for CK-10,12= 5,300","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.3","Harvest Control Rules":"Spring 5.2 and Summer 5.2 SMUs, the harvest control rule is applied to the combined stock aggregate. The rule is a variable escapement target strategy: allowable harvest increases with increasing aggregate stock abundance relative to three zones. Zone 3 (greater than 85,000 terminal return): Manage to meet expected spawner abundance of at least 60,000 spawners in order to promote populations rebuilding towards estimated MSY levels. Zone 2 (45,000 to 85,000 terminal return): Manage to an escapement goal of at least 30,000 and up to 60,000 to avoid population declines. Zone 1 (below or equal to 45,000 terminal return): Expected spawner abundance will likely be 30,000 or less. Highest level of management restrictions used to maximize escapement.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"FRASER SUMMER RUN 41 CHINOOK SALMON","No. Cus":4,"Run Timing":"SUMMER","Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"MARIA SLOUGH_SU_0.3: 4 years, SOUTH THOMPSON_SU_0.3: 4 years, SHUSWAP RIVER_SU_0.3: 4 years, UPPER ADAMS RIVER_SU_1.x: 5 years","SMU Status":"DD\/GR","LRP":"LRP= 1,000 for CK-07, LRP= 2,100 for CK-15; LRP= 15,300 for CK-03; LRP= 23,600 for CK-13","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.45","Harvest Control Rules":"mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"FRASER SUMMER RUN 52 CHINOOK SALMON","No. Cus":6,"Run Timing":"SUMMER","Freshwater Life History":"After one year in freshwater, juvenile stream-type Chinook Salmon from the interior and lower Fraser systems migrate downstream in the spring and early summer and enter the Strait of Georgia. Nearly all FRC spend the first few months in the Salish Sea and","Ocean Migration":"Stream-type FRC tend to have the broadest marine distribution and are generally found more northerly and westerly than ocean-type variants, and catches have been reported as far north as the Bering Sea.In general, stream-type Chinook Salmon spend their fi","Age at Return":"5 years","SMU Status":"DD\/AMB\/RED","LRP":"LRP for CK-5,6,9,14= 1,000. LRP for CK-11= 5,800. LRP for CK-19=1,800.","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.3","Harvest Control Rules":"Spring 5.2 and Summer 5.2 SMUs, the harvest control rule is applied to the combined stock aggregate. The rule is a variable escapement target strategy: allowable harvest increases with increasing aggregate stock abundance relative to three zones. Zone 3 (greater than 85,000 terminal return): Manage to meet expected spawner abundance of at least 60,000 spawners in order to promote populations rebuilding towards estimated MSY levels. Zone 2 (45,000 to 85,000 terminal return): Manage to an escapement goal of at least 30,000 and up to 60,000 to avoid population declines. Zone 1 (below or equal to 45,000 terminal return): Expected spawner abundance will likely be 30,000 or less. Highest level of management restrictions used to maximize escapement.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chinook","SMU Name":"HAIDA GWAII CHINOOK SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":null,"USR":null,"RR":"No Healthy, Cautious, Critical or Uncertain Removal Zone has been determined","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chum","SMU Name":"HAIDA GWAII CHUM SALMON","No. Cus":5,"Run Timing":null,"Freshwater Life History":"Lake-type sockeye rear along the continental shelf upon entering the ocean in the spring (Tucker et al 2009)","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"T-S","USR":"ESC-MEG","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Coho","SMU Name":"HAIDA GWAII COHO SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"UND","USR":"UND","RR":"No removal reference for Health, Cautious,  Critical, or Uncertain zones. The stock is harvested within approved rates\/levels","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.1","Harvest Control Rules":"Harvest decision rules that aim to control exploitation have not been developed","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Pink","SMU Name":"HAIDA GWAII PINK SALMON","No. Cus":6,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Sockeye","SMU Name":"HAIDA GWAII SOCKEYE SALMON","No. Cus":10,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chum","SMU Name":"INNER SOUTH COAST CHUM SALMON","No. Cus":7,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"2 years","SMU Status":"Cautious","LRP":"T-S","USR":"ESC-MEG","RR":"No removal reference for Cautious, Critical or Uncertain zones.  RR for Healthy Zone: 20% Exploitation Rate in mixed stock fisheries (FSC, Rec, Commercial). A removal reference has not been identified for the zone the stock currently occupies (2023).","FRP-L":"Inner South Coast Chum - Mixed stock fisheries: 1000000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Harvest decision rules have been developed and implemented, but not evaluated. The stock is harvested within approved rates\/levels.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Coho","SMU Name":"INTERIOR FRASER COHO SALMON","No. Cus":5,"Run Timing":null,"Freshwater Life History":"IFC fry rear mainly in small tributaries, and are largely absent from mainstem habitats in larger streams. Typically after one year in freshwater, juvenile IFC migrate down the Fraser River in the spring and early summer. They remain in the highly develop","Ocean Migration":"After seawater entry, they spend the remaining 18 month oceanic residence primarily in coastal waters of the North Pacific. The marine distribution of habitat is thought to be primarily along the coast of British Columbia. Just under half (on average) of","Age at Return":"Eighty-eight percent of IFC complete a 3-year life cycle with the remaining 12% completing a 4-year life cycle on average","SMU Status":"Cautious","LRP":"CU status-based LRPs use the proportion of CUs within an SMU that are above the WSP \u2018Red\u2019 zone.","USR":"80% SMSY","RR":"UMSY","FRP-L":"LRP= 1,000 for Fraser Canyon; LRP= 1,400 for Lower Thompson; LRP=1,800 for Interior Fraser; LRP=2,300 for South Thompson; LRP=2,600 for North Thompson. (the Sustainability Survey for Fisheries 2023 states that there is no LRP)","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.11","Harvest Control Rules":"Established in 2002 and most recently updated in 2019, the Southern Coho Management Plan in Chapter 5 of the PST identifies Coho Exploitation Rate for U.S. and Canadian Coho fisheries based on the stock status of the Interior Fraser Coho SMU (i.e. \u2018Low\u2019, \u2018Moderate\u2019, and \u2018Abundant\u2019), as described previously. Under Chapter 5, total Exploitation Rate caps are set to 20%, 30%, and 45% according to the \u2018Low\u2019, \u2018Moderate\u2019, and \u2018Abundant\u2019 statuses, respectively.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Coho","SMU Name":"JOHNSTONE STRAIT\/MAINLAND INLET COHO SALMON","No. Cus":4,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Coho","SMU Name":"LOWER FRASER COHO SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"H-CO","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.15","Harvest Control Rules":"mixed: V-ER","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chinook","SMU Name":"LOWER GEORGIA STRAIT CHINOOK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"3 years","SMU Status":"TBD","LRP":"LRP= 3,413 Cowichan River fall run unenhanced","USR":"ESC-MSY","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.63","Harvest Control Rules":"mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chinook","SMU Name":"MAINLAND INLET CHINOOK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"SOUTHERN MAINLAND-SOUTHERN FJORDS_FA_0.x: 4 years, HOMATHKO_SU_x.x: 5 years, KLINAKLINI_SU_1.3: 5 years","SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chinook","SMU Name":"MIDDLE GEORGIA STRAIT CHINOOK SALMON","No. Cus":4,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"4 years","SMU Status":null,"LRP":"LRP= 7,193 Puntledge and Big Qualicum rivers fall run enhanced","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chinook","SMU Name":"NASS CHINOOK SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"Nass: UND","USR":"Nass: 10000 UND","RR":"No Healthy, Cautious, Critical or Uncertain Removal Zone has been determined","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Nass: mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chum","SMU Name":"NASS CHUM SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"T-S","USR":"ESC-MEG","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Coho","SMU Name":"NASS COHO SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"H-CO","USR":"40000","RR":"No removal reference for Health, Cautious,  Critical, or Uncertain zones. The stock is harvested within approved rates\/levels","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.12","Harvest Control Rules":"Harvest decision rules that aim to control exploitation have not been developed","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Pink","SMU Name":"NASS PINK SALMON","No. Cus":5,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Healthy","LRP":"Nass: UND","USR":"Nass: 225000","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Nass: 0.19","Harvest Control Rules":"Harvest decision rules have been developed and implemented, but not evaluated.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Sockeye","SMU Name":"NASS SOCKEYE SALMON","No. Cus":8,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Healthy","LRP":"Nass: UND, Meziadin: UND","USR":"200,000 fish","RR":null,"FRP-L":"Nass Sockeye: 100000.0","FRP-U":"Nass Sockeye: 200000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Nass: 0.42","Harvest Control Rules":"Harvest decision rules have been developed, implemented and evaluated.The stock is harvested within approved rates\/levels","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Chinook","SMU Name":"OKANAGAN CHINOOK SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":"Migrate to the sea after only two to five months in freshwater.","Ocean Migration":null,"Age at Return":"4 years","SMU Status":"Critical","LRP":"As of 2023, the SMU is below the LRP with high probability, as all available estimates place the number of natural-origin spawners well below 1,000, and the index of abundance shows a declining trend over the last 12 years (2012\u20132023)\u2014placing the stock in the Critical Zone.","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Harvest decisions rules have not been developed.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"FRASER AND INTERIOR","Species":"Sockeye","SMU Name":"OKANAGAN SOCKEYE SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"Okanagan Sockeye salmon SMU, which contains one CU that is not currently Red status, is considered to be above the Limit Reference Point (LRP) under the Fish Stock Provisions of the modernized Fisheries Act.","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chinook","SMU Name":"PORCUPINE CHINOOK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chum","SMU Name":"PORCUPINE CHUM SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"Fishing Branch?: T-S","USR":"Fishing Branch?: ESC-EXP","RR":null,"FRP-L":"Porcupine Chum: 22000.0","FRP-U":"Porcupine Chum: 49000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Fishing Branch?: Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Coho","SMU Name":"PORCUPINE COHO SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Sockeye","SMU Name":"RIVERS\/SMITH SOCKEYE SALMON","No. Cus":5,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"Rivers: UND, Smith: UND","USR":"Rivers: ESC-EXP, Smith: ESC-EXP","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Rivers: 0.05","Harvest Control Rules":"Rivers: Terminal: F-ESC, Smith: Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chum","SMU Name":"SKEENA - NASS CHUM COASTAL","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chinook","SMU Name":"SKEENA CHINOOK SALMON","No. Cus":12,"Run Timing":null,"Freshwater Life History":"Lake-type sockeye rear along the continental shelf upon entering the ocean in the spring (Tucker et al 2009)","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Uncertain","LRP":"Skeena: S-R","USR":"Skeena: UND","RR":"No Healthy, Cautious, Critical or Uncertain Removal Zone has been determined","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Skeena: 0.44","Harvest Control Rules":"Skeena: mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Chum","SMU Name":"SKEENA CHUM SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"T-S","USR":"ESC-MEG","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Coho","SMU Name":"SKEENA COHO SALMON","No. Cus":4,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Uncertain","LRP":"UND","USR":"UND","RR":"No removal reference for Health, Cautious,  Critical, or Uncertain zones. The stock is harvested within approved rates\/levels","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.54","Harvest Control Rules":"Harvest decision rules that aim to control exploitation have not been developed","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Pink","SMU Name":"SKEENA PINK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":"Healthy","LRP":"Skeena: UND","USR":"Skeena: 1000000","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"Skeena: 0.49","Harvest Control Rules":"Harvest decision rules have been developed and implemented, but not evaluated.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"NORTH COAST","Species":"Sockeye","SMU Name":"SKEENA SOCKEYE SALMON","No. Cus":32,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Healthy","LRP":"240000.0 S-R","USR":"900,000 fish","RR":"None calculated as all fisheries including FSC are closed.","FRP-L":"Skeena Sockeye: 400000.0","FRP-U":"Skeena Sockeye: 900000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.55","Harvest Control Rules":"Harvest decision rules have been developed and implemented, but not evaluated.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chinook","SMU Name":"STIKINE CHINOOK SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"Stikine: S-R, Little Tahtlan: S-R","USR":"Stikine: 17400 ESC-MSY, Little Tahtlan: 3300 ESC-MSY","RR":null,"FRP-L":"Stikine Chinook: 14000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Stikine: Terminal: F-ESC, Little Tahtlan: Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Coho","SMU Name":"STIKINE COHO SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"ESC-EXP","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Sockeye","SMU Name":"STIKINE SOCKEYE SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Healthy","LRP":"Mainstem : S-R, Tahtlan: S-R","USR":"Mainstem : 30000 ESC-MSY, Tahtlan: 24000 ESC-MSY","RR":null,"FRP-L":"Stikine Sockeye: 38000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Harvest decision rules have been  developed, implemented and evaluated. Tables 13-6.23 and 13-7.24 in the IFMP identify the Canadian management reference points for Tahltan Lake and mainstem Sockeye salmon, respectively. Since the FN fishery occurs mostly upstream of the mainstem Sockeye spawning areas, it is not generally affected by conservation concerns for this stock as indicated in Table 13-7.24.Harvest decision rules are reviewed and evaluated annually via the Stikine River Salmon Management Advisory Committee comprising DFO, Tahltan Central Government, and stakeholders (primarily commercial fishers).","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Coho","SMU Name":"STRAIT OF GEORGIA COHO SALMON","No. Cus":4,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"H-CO","USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.06","Harvest Control Rules":"mixed: V-ER, Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chinook","SMU Name":"TAKU CHINOOK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"S-R","USR":"25500 ESC-MSY","RR":null,"FRP-L":"Taku Chinook: 19000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Coho","SMU Name":"TAKU COHO SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"40000.0 UND","USR":"70000 ESC-EXP","RR":null,"FRP-L":"Taku Coho: 50000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Sockeye","SMU Name":"TAKU SOCKEYE SALMON","No. Cus":4,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"75000 ESC-EXP","RR":null,"FRP-L":"Taku Sockeye: 70000.0","FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chum","SMU Name":"TRANSBOUNDARY CHUM SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"T-S","USR":"ESC-EXP","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: V-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Pink","SMU Name":"TRANSBOUNDARY PINK SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"ESC-EXP","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: V-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chinook","SMU Name":"UPPER GEORGIA STRAIT CHINOOK SALMON","No. Cus":1,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"4 years","SMU Status":"DD","LRP":"H-CN","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.39","Harvest Control Rules":"mixed: V-HR","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Sockeye","SMU Name":"WCVI - BARKLEY SOCKEYE SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":"Uncertain","LRP":"GCL: 30000.0 S-R, SPL: 30000.0 S-R, HED: 3500.0 H-SO2","USR":"GCL: 200K ESC-MSY, SPL: 150K  ESC-MSY, HED: HAB","RR":null,"FRP-L":"WCVI - Barkley\/Somass Sockeye: 170000.0","FRP-U":"WCVI - Barkley\/Somass Sockeye: 700000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"GCL: 0.05","Harvest Control Rules":"Harvest decision rules have been developed, implemented and evaluated.They are documented in the Local area management plan at https:\/\/www.roundtables.westcoastaquatic.ca\/area-23-barkley-harvest","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Sockeye","SMU Name":"WCVI - OTHER SOCKEYE SALMON","No. Cus":22,"Run Timing":null,"Freshwater Life History":"Lake Type","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"UND","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.05","Harvest Control Rules":"Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chinook","SMU Name":"WCVI CHINOOK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":"Peak outmigration is late March to early April, with range from February to June.","Ocean Migration":"Far northerly distribution is South East Alaska.","Age at Return":"4 years","SMU Status":"Critical","LRP":"100% of CUs within SMU have WSP status estimates above red","USR":"85% SMSY = 16204","RR":"43% (IQR: 30\u201354%)","FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.65","Harvest Control Rules":"Canada allocations are subject to provisions of Chapter 3 of the Pacific Salmon Treaty. Mixed-stock AABM fisheries are managed with a variable harvest rate strategy. There are 3 Aggregate Abundance Based Management (AABM) fisheries: Southeast Alaska (SEAK), Northern BC (NBC), and West Coast Vancouver Island (WCVI). Individual stock-based management\u2019 (ISBM) fisheries are adaptively managed to achieve national reductions on stock specific exploitation rates, which are specified in the Chinook Chapter.  Within Canada, additional exploitation rate limits on low status SMUs may be implemented through the Integrated Fisheries Mananamgent Plan, requiring secondary management measures, such as time\u2013area closures, gear limits, etc. In addition, given variation in status among component populations within the WCVI SMU and different levels of hatchery contribution, unique harvest control rules are in place for geographically discrete \u2018terminal\u2019 areas on the WCVI.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Chum","SMU Name":"WCVI CHUM SALMON","No. Cus":2,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":"WCVI Chum mature and return to the terminal area as mainly 3, 4, and 5 year old fish.","SMU Status":null,"LRP":"T-S","USR":"ESC-TS","RR":"WCVI Chum - Nitinat: 25% when below target fishery reference point","FRP-L":"WCVI Chum - Nitinat: 225000.0","FRP-U":"WCVI Chum - Nitinat: 325000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.2","Harvest Control Rules":"Terminal: F-ER","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Coho","SMU Name":"WCVI COHO SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":"Lake-type sockeye rear along the continental shelf upon entering the ocean in the spring (Tucker et al 2009)","Ocean Migration":"Lake-type sockeye reach offshore rearing sites in the Gulf of Alaska by their first winter, following a northwest migration (Tucker et al 2009)","Age at Return":null,"SMU Status":null,"LRP":"H-CO","USR":"UND","RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":"0.11","Harvest Control Rules":"mixed: F-ER, Terminal: UND","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"SOUTH COAST","Species":"Pink","SMU Name":"WCVI PINK SALMON","No. Cus":3,"Run Timing":null,"Freshwater Life History":null,"Ocean Migration":null,"Age at Return":null,"SMU Status":null,"LRP":null,"USR":null,"RR":null,"FRP-L":null,"FRP-U":null,"Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":null,"Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chinook","SMU Name":"YUKON CHINOOK SALMON","No. Cus":9,"Run Timing":null,"Freshwater Life History":"UPPER YUKON RIVER: Juveniles spend one year rearing in streams and small rivers before outmigration., BIG SALMON: Juveniles spend one year rearing in streams and small rivers before outmigration., NORDENSKIOLD: Juveniles spend one year rearing in streams and small rivers before outmigration., PELLY: Juveniles spend one year rearing in streams and small rivers before outmigration., MIDDLE YUKON RIVER AND TRIBUTARIES: Juveniles spend one year rearing in streams and small rivers before outmigration., STEWART: Juveniles spend one year rearing in streams and small rivers before outmigration., WHITE AND TRIBUTARIES: Juveniles spend one year rearing in streams and small rivers before outmigration., NORTHERN YUKON RIVER AND TRIBUTARIES: Juveniles spend one year rearing in streams and small rivers before outmigration., YUKON RIVER-TESLIN HEADWATERS: Juveniles spend one year rearing in streams and small rivers before outmigration., STEWART: Juvenile upper Yukon Chum salmon emerge from the gravel in April and May. After emergence, they spend little time in the natal area. By mid-June, most have moved away from the spawning areas.","Ocean Migration":"Chinook salmon  spend  two to five years in the Bering Sea before returning to their natal spawning grounds.","Age at Return":"UPPER YUKON RIVER: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, BIG SALMON: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, NORDENSKIOLD: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, PELLY: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, MIDDLE YUKON RIVER AND TRIBUTARIES: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, STEWART: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, WHITE AND TRIBUTARIES: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, NORTHERN YUKON RIVER AND TRIBUTARIES: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, YUKON RIVER-TESLIN HEADWATERS: Female Chinook salmon age at maturity,and to a lesser extent the proportion of females in the spawning population,has declined overtime. Most Chinook salmon return at age-five or age-six, but some return as age-four or age-seven olds (typically less than, STEWART: Predominant age classes of mature upper Yukon Chum salmon are age-four (62%) and age-five (35%).","SMU Status":"Critical","LRP":"UND","USR":"55000","RR":"RR in the healthy zone: All Chinook salmon above 55,000 within Harvest Share limits.  RR in the cautious zone: No harvest when return to Canada below Canadian management objective of 55,000. No RR has been identified for when the stock is in the critical","FRP-L":"Yukon Chinook: 48750.0","FRP-U":"Yukon Chinook: 55000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Have been developed, implemented and evaluated. RED ZONE (<55,000) No harvest. YELLOW ZONE (55,000+) Limited First Nation harvest only (within Harvest Share agreement with the US). 2023 run size for Canadian-origin Yukon River Chinook was estimated at 15,820. Though run sizes <55,000 indicate no harvest, limited harvests did occur (886 US, 180 Canada). These harvests occurred early in the season, and were incidental harvests occurring in fisheries targeting freshwater species.","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null},{"Region":"YUKON TRANSBOUNDARY","Species":"Chum","SMU Name":"YUKON CHUM SALMON","No. Cus":6,"Run Timing":null,"Freshwater Life History":"Juvenile upper Yukon Chum salmon emerge from the gravel in April and May. After emergence, they spend little time in the natal area. By mid-June, most have moved away from the spawning areas.","Ocean Migration":null,"Age at Return":"Predominant age classes of mature upper Yukon Chum salmon are age-four (62%) and age-five (35%).","SMU Status":null,"LRP":"T-S","USR":"ESC-EXP","RR":null,"FRP-L":"Yukon Chum: 87000.0","FRP-U":"Yukon Chum: 104000.0","Avg. Abundance":null,"Avg. Catch":null,"Avg. ER":null,"Harvest Control Rules":"Terminal: F-ESC","Hatchery Management Framework":null,"Sampling Framework":null,"PST Chapter":null,"FN Treaty":null,"FSP Batch Status":null}];
+const allColumns = ["Region", "Species", "SMU Name", "No. Cus", "Run Timing", "Freshwater Life History", "Ocean Migration", "Age at Return", "SMU Status", "LRP", "USR", "RR", "FRP-L", "FRP-U", "Avg. Abundance", "Avg. Catch", "Avg. ER", "Harvest Control Rules", "Hatchery Management Framework", "Sampling Framework", "PST Chapter", "FN Treaty", "FSP Batch Status"];
+
+// Populate species and region filters
+window.addEventListener('DOMContentLoaded', function() {
+    const speciesFilter = document.getElementById('speciesFilter');
+    const regionFilter = document.getElementById('regionFilter');
+
+    if (speciesFilter && smuData && smuData.length > 0) {
+        const species = [...new Set(smuData.map(item => item.Species || item.species).filter(s => s && s !== 'N/A'))].sort();
+        species.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            speciesFilter.appendChild(option);
+        });
+    }
+
+    if (regionFilter && smuData && smuData.length > 0) {
+        const regions = [...new Set(smuData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        });
+    }
+});
+
+function filterTable() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const speciesFilter = document.getElementById('speciesFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const table = document.getElementById('smuTable');
+    const rows = table.getElementsByTagName('tr');
+
+    // Get column indices for Species and Region
+    const headerRow = table.getElementsByTagName('tr')[0];
+    const headers = Array.from(headerRow.getElementsByTagName('th')).map(th => th.textContent);
+    const speciesIndex = headers.findIndex(h => h === 'Species' || h === 'species');
+    const regionIndex = headers.findIndex(h => h === 'Region' || h === 'region');
+
+    for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const cells = row.getElementsByTagName('td');
+        let showRow = true;
+
+        // Search filter
+        if (searchTerm) {
+            let found = false;
+            for (let j = 0; j < cells.length; j++) {
+                if (cells[j].textContent.toLowerCase().includes(searchTerm)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) showRow = false;
+        }
+
+        // Species filter
+        if (speciesFilter && speciesIndex >= 0 && cells.length > speciesIndex) {
+            if (cells[speciesIndex].textContent !== speciesFilter) {
+                showRow = false;
+            }
+        }
+
+        // Region filter
+        if (regionFilter && regionIndex >= 0 && cells.length > regionIndex) {
+            if (cells[regionIndex].textContent !== regionFilter) {
+                showRow = false;
+            }
+        }
+
+        row.style.display = showRow ? '' : 'none';
+    }
+}
+
+function showDetails(index) {
+    // Safety checks
+    if (!smuData || smuData.length === 0 || index >= smuData.length || index < 0) {
+        console.error('Invalid data or index for showDetails');
+        return;
+    }
+
+    const smu = smuData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+    const table = document.getElementById('smuTable');
+
+    if (!smu || !detailView || !detailContent) return;
+
+    let html = `<h2>${smu['SMU Name'] || 'SMU Profile'}</h2>`;
+
+    // Basic Information
+    html += '<div class="detail-section"><h3><i>Basic Information</i></h3><div class="info-grid">';
+    const basicFields = ['Species', 'Region', 'No. CUs', 'Avg. Abundance', 'Avg. Catch', 'Avg. ER', 'SMU Status', 'PST Chapter', 'FN Treaty', 'FSP Batch Status'];
+         basicFields.forEach(field => {
+         if (allColumns.includes(field)) {
+             html += `<div class="info-item"><label>${field}:</label><span>${smu[field] || 'N/A'}</span></div>`;
+         }
+     });
+    html += '</div><br></div>';
+
+    // Life History
+    html += '<div class="detail-section"><h3><i>Life History</i></h3><div class="info-grid">';
+    const popFields = ['Run Timing', 'Freshwater Life History', 'Ocean Migration', 'Age at Return'];
+         popFields.forEach(field => {
+         if (allColumns.includes(field)) {
+             html += `<div class="info-item"><label>${field}:</label><span>${smu[field] || 'N/A'}</span></div>`;
+         }
+     });
+    html += '</div><br></div>';
+
+    // Management & Harvest
+    html += '<div class="detail-section"><h3><i>Management & Harvest</i></h3><div class="info-grid">';
+    const mgmtFields = ['Harvest Control Rules', 'Hatchery Management Framework', 'Sampling Framework'];
+         mgmtFields.forEach(field => {
+         if (allColumns.includes(field)) {
+             html += `<div class="info-item"><label>${field}:</label><span>${smu[field] || 'N/A'}</span></div>`;
+         }
+     });
+    html += '</div><br></div>';
+
+    // Reference Points
+    html += '<div class="detail-section"><h3><i>Reference Points</i></h3><div class="info-grid">';
+    const addFields = ['LRP', 'USR', 'RR', 'FRP-L', 'FRP-U'];
+         addFields.forEach(field => {
+         if (allColumns.includes(field)) {
+             html += `<div class="info-item"><label>${field}:</label><span>${smu[field] || 'N/A'}</span></div>`;
+         }
+     });
+    html += '</div><br></div>';
+
+         //Data Collected
+     html += '<div class="detail-section"><h3><i>Data Collected</i></h3>';
+     html += '<table class="data-collected-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {
+             html += '<td>&nbsp;</td>';
+         }
+         html += '</tr>';
+     }
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+
+    // FSAR Assessment
+    if (smu['FSAR - last assessment'] && smu['FSAR - last assessment'] !== 'N/A') {
+        html += '<div class="detail-section"><h3><i>FSAR Assessment</i></h3>';
+        html += `<p><strong>Last Assessment:</strong> <a href="#" target="_blank" rel="noopener noreferrer">${smu['FSAR - last assessment']}</a></p>`;
+        html += '</div>';
+    }
+
+         // Maps
+     html += '<div class="detail-section"><h3><i>Maps</i></h3>';
+     html += '<div class="maps-container">';
+     const mapTypes = ['FW Spawning', 'Marine Distribution', 'Fishery Impacts'];
+     mapTypes.forEach(mapType => {
+         html += `<div class="map-item">`;
+         html += `<h4>${mapType}</h4>`;
+         html += `<div class="map-placeholder">`;
+         html += `<div class="map-placeholder-content">`;
+         html += `<p>Map Placeholder</p>`;
+         html += `<p>${mapType} map will be displayed here</p>`;
+         html += `</div></div></div>`;
+     });
+     html += '</div></div>';
+
+    detailContent.innerHTML = html;
+    document.querySelector('.table-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}
+
+function hideDetails() {
+    const detailView = document.getElementById('detailView');
+    const tableWrapper = document.querySelector('.table-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+
+    if (detailView) detailView.style.display = 'none';
+    if (tableWrapper) tableWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}
+</script>
+</div>
+</div>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Links to detailed profiles and supporting documentation.</p>
+</section>
+<section id="data-export" class="level2">
+<h2 class="anchored" data-anchor-id="data-export">Data Export</h2>
+<div id="1af944ab" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+
+<div class="export-section">
+    <h3 class="anchored">Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\n';
+
+    smuData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'smu_profiles.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    
+</div>
+</div>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<div id="1da5f9ba" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="stock-management-unit-profiles_files/figure-html/cell-9-output-1.png" width="990" height="588" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
