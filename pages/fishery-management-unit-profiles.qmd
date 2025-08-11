@@ -1,0 +1,33 @@
+---
+title: "Fishery Management Unit Profiles"
+format: html
+---
+
+# Fishery Management Unit Profiles
+
+This page provides profiles of fishery management units relevant to Pacific salmon conservation.
+
+## Overview
+
+Fishery management units define the spatial and temporal boundaries for fishery management decisions.
+
+## Types of Fishery Management Units
+
+- Commercial fisheries
+- Recreational fisheries
+- First Nations fisheries
+- Terminal fisheries
+- Mixed-stock fisheries
+
+## Profile Information
+
+Each profile includes:
+- Geographic boundaries
+- Target species
+- Fishing methods
+- Management measures
+- Conservation concerns
+
+## Resources
+
+Detailed profiles and management documents are available here. 

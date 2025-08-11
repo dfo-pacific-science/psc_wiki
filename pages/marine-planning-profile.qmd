@@ -1,0 +1,39 @@
+---
+title: "Marine Planning Profile"
+format: html
+---
+
+# Marine Planning Profile
+
+This page provides information about marine planning initiatives relevant to Pacific salmon conservation.
+
+## Overview
+
+Marine planning integrates conservation and management considerations across marine ecosystems where Pacific salmon spend portions of their life cycle.
+
+## Marine Planning Areas
+
+- Coastal marine areas
+- Estuarine environments
+- Near-shore habitats
+- Open ocean zones
+
+## Key Planning Elements
+
+- Habitat mapping
+- Species distribution
+- Human use patterns
+- Conservation priorities
+- Climate change considerations
+
+## Integration with Salmon Conservation
+
+How marine planning supports Pacific salmon conservation objectives:
+- Critical habitat protection
+- Migration corridor conservation
+- Feeding area management
+- Climate adaptation planning
+
+## Resources
+
+Marine planning documents, maps, and tools. 

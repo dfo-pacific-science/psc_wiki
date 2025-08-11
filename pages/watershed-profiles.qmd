@@ -1,0 +1,37 @@
+---
+title: "Watershed Profiles"
+format: html
+---
+
+# Watershed Profiles
+
+This page contains detailed profiles of watersheds important for Pacific salmon conservation.
+
+## Overview
+
+Watershed profiles provide comprehensive information about the physical, biological, and management characteristics of salmon-bearing watersheds.
+
+## Watershed Categories
+
+- Major river systems
+- Coastal watersheds
+- Urban watersheds
+- Transboundary watersheds
+
+## Profile Components
+
+Each watershed profile includes:
+- Physical characteristics
+- Habitat conditions
+- Species presence and abundance
+- Conservation status
+- Restoration activities
+- Management considerations
+
+## Interactive Maps
+
+Links to interactive watershed mapping tools and resources.
+
+## Resources
+
+Access to detailed watershed assessments and supporting data. 

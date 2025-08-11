@@ -1,0 +1,53 @@
+---
+title: "Regional Management and Assessment Frameworks"
+format: html
+---
+
+### Legislative, Reg
+Regulatory and legislative frameworks governing Pacific salmon management and conservation policies.
+
+[📥 Download Legislative, Reg](){.btn .btn-primary}
+
+---
+
+### Overall Principles
+Comprehensive overview of the fundamental principles guiding Pacific salmon conservation and management strategies.
+
+[📥 Download Overall Principles](){.btn .btn-primary}
+
+---
+
+### Chinook MAF
+Management and Assessment Framework specifically designed for Chinook salmon populations, including stock assessment methodologies and management protocols.
+
+[📥 Download Chinook MAF](){.btn .btn-primary}
+
+---
+
+### Coho MAF
+Management and Assessment Framework for Coho salmon, detailing population assessment techniques and conservation measures.
+
+[📥 Download Coho MAF](){.btn .btn-primary}
+
+---
+
+### Sockeye MAF
+Management and Assessment Framework for Sockeye salmon, covering stock evaluation methods and management recommendations.
+
+[📥 Download Sockeye MAF](){.btn .btn-primary}
+
+---
+
+### Chum MAF
+Management and Assessment Framework for Chum salmon, including assessment protocols and management guidelines.
+
+[📥 Download Chum MAF](){.btn .btn-primary}
+
+---
+
+### Pink MAF
+Management and Assessment Framework for Pink salmon, detailing population dynamics assessment and management strategies.
+
+[📥 Download Pink MAF](){.btn .btn-primary}
+
+---

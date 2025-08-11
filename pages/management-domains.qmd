@@ -1,0 +1,47 @@
+---
+title: "Management Domains"
+format: html
+---
+
+# Management Domains
+
+This page describes the management domains used in Pacific salmon conservation planning.
+
+## Overview
+
+Management domains provide a framework for organizing conservation and management activities across different geographic and jurisdictional areas.
+
+## Domain Structure
+
+- Regional domains
+- Sub-regional domains
+- Local management areas
+- Cross-boundary considerations
+
+## Domain Characteristics
+
+Each management domain is defined by:
+- Geographic boundaries
+- Ecological characteristics
+- Jurisdictional authorities
+- Management objectives
+- Conservation priorities
+
+## Coordination Mechanisms
+
+- Inter-agency coordination
+- Indigenous government partnerships
+- Stakeholder engagement
+- Transboundary cooperation
+
+## Implementation
+
+How management domains are applied in practice:
+- Planning processes
+- Resource allocation
+- Monitoring and assessment
+- Adaptive management
+
+## Resources
+
+Management domain maps, descriptions, and coordination frameworks. 

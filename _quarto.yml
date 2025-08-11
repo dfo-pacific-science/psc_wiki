@@ -1,21 +1,49 @@
 project:
   type: website
-  output-dir: _site        # Quarto’s default output folder
-
-website:
   title: "PSC Wiki"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - pages/getting-started.qmd
-      - pages/glossary.qmd
+  output-dir: _site
 
 format:
   html:
     theme: cosmo
+    toc: true
     css: assets/css/styles.css
 
+website:
+  navbar:
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/dfo-pacific-science/psc_wiki
+          - text: Report a Bug
+            href: https://github.com/dfo-pacific-science/psc_wiki/issues
+
+  sidebar:
+    collapse-level: 1
+    style: docked
+    background: light
+    contents:
+      - text: Regional Management and Assessment Frameworks
+        href: pages/regional-management-and-assessment-frameworks.qmd
+      - text: Stock Management Unit Profiles
+        href: pages/stock-management-unit-profiles.qmd
+      - text: Fishery Management Unit Profiles
+        href: pages/fishery-management-unit-profiles.qmd
+      - text: Watershed Profiles
+        href: pages/watershed-profiles.qmd
+      - text: Marine Planning Profile
+        href: pages/marine-planning-profile.qmd
+      - text: Management Domains
+        href: pages/management-domains.qmd
+
+  repo-url: https://github.com/dfo-pacific-science/psc_wiki
+  repo-actions: [edit, source, issue]
+  page-footer: 
+    right: "This site was created with [Quarto](https://quarto.org/) and is hosted with [GitHub Pages](https://pages.github.com/)."
+    
+lang: en
+
 resources:
-  - downloads/**           # copy PDFs, etc. to _site unchanged
+  - downloads/**
   - assets/**
