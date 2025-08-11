@@ -1,37 +1,305 @@
 ---
 title: "Watershed Profiles"
-format: html
+format: 
+  html:
+    css: ../assets/css/watershed_profiles.css
+    toc: true
+    toc-depth: 2
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+jupyter: python3
 ---
 
-# Watershed Profiles
+```{python}
+import pandas as pd
+import numpy as np
+from IPython.display import HTML, display
+import json
 
-This page contains detailed profiles of watersheds important for Pacific salmon conservation.
+# Read the Excel file (placeholder - will need actual watershed data file)
+try:
+    import os
+    file_path = '../assets/data/watershed_profiles.xlsx'  # You'll need to create this file
+    print(f"Attempting to read file: {file_path}")
+    print(f"File exists: {os.path.exists(file_path)}")
+    
+    if os.path.exists(file_path):
+        df = pd.read_excel(file_path)
+        print(f"Successfully loaded {len(df)} watershed records")
+    else:
+        # Create sample data for demonstration
+        print("Creating sample watershed data...")
+        sample_data = {
+            'Watershed Name': [
+                'Fraser River Watershed', 'Thompson River Watershed', 'Columbia River Watershed',
+                'Skeena River Watershed', 'Nass River Watershed', 'Stikine River Watershed',
+                'Taku River Watershed', 'Alsek River Watershed', 'Yukon River Watershed',
+                'Peace River Watershed', 'Athabasca River Watershed', 'Mackenzie River Watershed'
+            ],
+            'Region': ['Fraser', 'Fraser', 'Columbia', 'North Coast', 'North Coast', 'North Coast'] * 2,
+            'Primary Species': ['Chinook', 'Coho', 'Chinook', 'Chinook', 'Chinook', 'Coho'] * 2
+        }
+        df = pd.DataFrame(sample_data)
+        print(f"Created sample data with {len(df)} watershed records")
+        
+except Exception as e:
+    print(f"Error loading data: {e}")
+    # Create minimal sample data
+    df = pd.DataFrame({
+        'Watershed Name': ['Sample Watershed 1', 'Sample Watershed 2'],
+        'Region': ['Fraser', 'Coast'],
+        'Primary Species': ['Chinook', 'Coho']
+    })
+```
 
 ## Overview
 
-Watershed profiles provide comprehensive information about the physical, biological, and management characteristics of salmon-bearing watersheds.
+This page contains profiles of **{{< meta title >}}** for Pacific salmon conservation. The data includes information on `{python} len(df) if not df.empty else 0` watersheds.
 
-## Watershed Categories
+## Search and Filter
 
-- Major river systems
-- Coastal watersheds
-- Urban watersheds
-- Transboundary watersheds
+```{python}
+from IPython.display import HTML
 
-## Profile Components
+# Always display search controls, even if no data
+display(HTML("""
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search watersheds..." onkeyup="filterList()">
+    <select id="speciesFilter" onchange="filterList()">
+        <option value="">All Species</option>
+    </select>
+    <select id="regionFilter" onchange="filterList()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+"""))
+```
 
-Each watershed profile includes:
-- Physical characteristics
-- Habitat conditions
-- Species presence and abundance
-- Conservation status
-- Restoration activities
-- Management considerations
+## Watershed List
+###### Click each item to view details
 
-## Interactive Maps
+```{python}
+if df.empty:
+    display(HTML("""
+    <p>No data to display.</p>
+    <div class="watershed-list-wrapper" style="display: none;">
+        <div id="watershedList" class="watershed-list">
+            <div class="watershed-item">No Data</div>
+        </div>
+    </div>
+    """))
 
-Links to interactive watershed mapping tools and resources.
+if not df.empty:
+    # Create two-column list of watershed names
+    html_list = '<div class="watershed-list-wrapper">\n<div id="watershedList" class="watershed-list">\n'
+    
+    for idx, row in df.iterrows():
+        watershed_name = str(row['Watershed Name']) if pd.notna(row['Watershed Name']) else 'Unknown Watershed'
+        species = str(row['Primary Species']) if pd.notna(row['Primary Species']) else 'Unknown'
+        region = str(row['Region']) if pd.notna(row['Region']) else 'Unknown'
+        
+        html_list += f'''
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails({idx})" data-species="{species}" data-region="{region}">
+            <div class="watershed-name">{watershed_name}</div>
+            <div class="watershed-meta">{species} • {region}</div>
+        </div>
+        '''
+    
+    html_list += '</div>\n</div>'
+    display(HTML(html_list))
+else:
+    display(HTML("<p>No suitable data found for display.</p>"))
+```
 
-## Resources
+```{python}
+# Always display the detail view HTML elements
+display(HTML('''
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to List</button>
+    <div id="detailContent"></div>
+</div>
+'''))
+```
 
-Access to detailed watershed assessments and supporting data. 
+```{python}
+# Create JavaScript data object - always define, even if empty
+import json
+
+if not df.empty:
+    df_json = df.to_json(orient='records')
+    columns_list = json.dumps(list(df.columns))
+else:
+    df_json = "[]"
+    columns_list = "[]"
+
+js_code = f"""
+<script>
+const watershedData = {df_json};
+const allColumns = {columns_list};
+
+// Populate species and region filters
+window.addEventListener('DOMContentLoaded', function() {{
+    const speciesFilter = document.getElementById('speciesFilter');
+    const regionFilter = document.getElementById('regionFilter');
+    
+    if (speciesFilter && watershedData && watershedData.length > 0) {{
+        const species = [...new Set(watershedData.map(item => item['Primary Species'] || item.species).filter(s => s && s !== 'N/A'))].sort();
+        species.forEach(s => {{
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            speciesFilter.appendChild(option);
+        }});
+    }}
+    
+    if (regionFilter && watershedData && watershedData.length > 0) {{
+        const regions = [...new Set(watershedData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {{
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        }});
+    }}
+}});
+
+function filterList() {{
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const speciesFilter = document.getElementById('speciesFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const items = document.querySelectorAll('.watershed-item');
+    
+    items.forEach(item => {{
+        let showItem = true;
+        
+        // Search filter
+        if (searchTerm) {{
+            const itemText = item.textContent.toLowerCase();
+            if (!itemText.includes(searchTerm)) {{
+                showItem = false;
+            }}
+        }}
+        
+        // Species filter
+        if (speciesFilter && item.dataset.species !== speciesFilter) {{
+            showItem = false;
+        }}
+        
+        // Region filter
+        if (regionFilter && item.dataset.region !== regionFilter) {{
+            showItem = false;
+        }}
+        
+        item.style.display = showItem ? 'block' : 'none';
+    }});
+}}
+
+function showWatershedDetails(index) {{
+    // Safety checks
+    if (!watershedData || watershedData.length === 0 || index >= watershedData.length || index < 0) {{
+        console.error('Invalid data or index for showWatershedDetails');
+        return;
+    }}
+    
+    const watershed = watershedData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+    
+    if (!watershed || !detailView || !detailContent) return;
+    
+    let html = `<h2>${{watershed['Watershed Name'] || 'Watershed Profile'}}</h2>`;
+    
+    // Planning Information
+    html += '<div class="detail-section"><h3><i>Integrated Planning Profile</i></h3>';
+    html += '<div class="planning-grid">';
+    html += '<div class="planning-item">';
+    html += '<h4>Document</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Planning document information</p>';
+    html += '</div></div>';
+    html += '<div class="planning-item">';
+    html += '<h4>Summary</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Planning summary</p>';
+    html += '</div></div>';
+    html += '<div class="planning-item">';
+    html += '<h4>Link</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Document link</p>';
+    html += '</div></div>';
+    html += '</div></div>';
+    
+    html += '<div class="detail-section"><h3><i>Key Threats / Pressures</i></h3>';
+    html += '<table class="data-table">';
+    html += '<tbody>';
+    for (let i = 0; i < 3; i++) {{
+        html += '<tr>';
+        for (let j = 0; j < 5; j++) {{
+            html += '<td>&nbsp;</td>';
+        }}
+        html += '</tr>';
+    }}
+    html += '</tbody>';
+    html += '</table>';
+    html += '</div>';
+    
+    detailContent.innerHTML = html;
+    document.querySelector('.watershed-list-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}}
+
+function hideDetails() {{
+    const detailView = document.getElementById('detailView');
+    const listWrapper = document.querySelector('.watershed-list-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+    
+    if (detailView) detailView.style.display = 'none';
+    if (listWrapper) listWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}}
+</script>
+"""
+
+display(HTML(js_code))
+```
+
+## Data Export
+
+```{python}
+if not df.empty:
+    display(HTML("""
+<div class="export-section">
+    <h3>Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\\n';
+    
+    watershedData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\\n';
+    });
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'watershed_profiles.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    """))
+``` 

@@ -1,39 +1,286 @@
 ---
 title: "Marine Planning Profile"
-format: html
+format: 
+  html:
+    css: ../assets/css/marine_planning.css
+    toc: true
+    toc-depth: 2
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+jupyter: python3
 ---
 
-# Marine Planning Profile
+```{python}
+import pandas as pd
+import numpy as np
+from IPython.display import HTML, display
+import json
 
-This page provides information about marine planning initiatives relevant to Pacific salmon conservation.
+# Read the Excel file (placeholder - will need actual marine planning data file)
+try:
+    import os
+    file_path = '../assets/data/marine_planning.xlsx'  # You'll need to create this file
+    print(f"Attempting to read file: {file_path}")
+    print(f"File exists: {os.path.exists(file_path)}")
+    
+    if os.path.exists(file_path):
+        df = pd.read_excel(file_path)
+        print(f"Successfully loaded {len(df)} marine planning records")
+    else:
+        # Create sample data for demonstration
+        print("Creating sample marine planning data...")
+        sample_data = {
+            'Planning Area': [
+                'Strait of Georgia', 'Juan de Fuca Strait', 'West Coast Vancouver Island',
+                'Central Coast', 'North Coast', 'Haida Gwaii',
+                'Dixon Entrance', 'Hecate Strait', 'Queen Charlotte Sound',
+                'Johnstone Strait', 'Discovery Passage', 'Burrard Inlet'
+            ],
+            'Region': ['South Coast', 'South Coast', 'WCVI', 'Central Coast', 'North Coast', 'Haida Gwaii'] * 2,
+            'Primary Focus': ['Salmon Migration', 'Spawning Areas', 'Feeding Areas', 'Critical Habitat', 'Migration Routes', 'Nursery Areas'] * 2
+        }
+        df = pd.DataFrame(sample_data)
+        print(f"Created sample data with {len(df)} marine planning records")
+        
+except Exception as e:
+    print(f"Error loading data: {e}")
+    # Create minimal sample data
+    df = pd.DataFrame({
+        'Planning Area': ['Sample Marine Area 1', 'Sample Marine Area 2'],
+        'Region': ['South Coast', 'North Coast'],
+        'Primary Focus': ['Salmon Habitat', 'Migration Routes']
+    })
+```
 
 ## Overview
 
-Marine planning integrates conservation and management considerations across marine ecosystems where Pacific salmon spend portions of their life cycle.
+This page contains profiles of **{{< meta title >}}** for Pacific salmon conservation. The data includes information on `{python} len(df) if not df.empty else 0` marine planning areas.
+
+## Search and Filter
+
+```{python}
+from IPython.display import HTML
+
+# Always display search controls, even if no data
+display(HTML("""
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search marine areas..." onkeyup="filterList()">
+    <select id="focusFilter" onchange="filterList()">
+        <option value="">All Focus Areas</option>
+    </select>
+    <select id="regionFilter" onchange="filterList()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+"""))
+```
 
 ## Marine Planning Areas
+###### Click each item to view details
 
-- Coastal marine areas
-- Estuarine environments
-- Near-shore habitats
-- Open ocean zones
+```{python}
+if df.empty:
+    display(HTML("""
+    <p>No data to display.</p>
+    <div class="marine-list-wrapper" style="display: none;">
+        <div id="marineList" class="marine-list">
+            <div class="marine-item">No Data</div>
+        </div>
+    </div>
+    """))
 
-## Key Planning Elements
+if not df.empty:
+    # Create two-column list of marine planning area names
+    html_list = '<div class="marine-list-wrapper">\n<div id="marineList" class="marine-list">\n'
+    
+    for idx, row in df.iterrows():
+        area_name = str(row['Planning Area']) if pd.notna(row['Planning Area']) else 'Unknown Area'
+        focus = str(row['Primary Focus']) if pd.notna(row['Primary Focus']) else 'Unknown'
+        region = str(row['Region']) if pd.notna(row['Region']) else 'Unknown'
+        
+        html_list += f'''
+        <div class="marine-item clickable-item" onclick="showMarineDetails({idx})" data-focus="{focus}" data-region="{region}">
+            <div class="marine-name">{area_name}</div>
+            <div class="marine-meta">{focus} • {region}</div>
+        </div>
+        '''
+    
+    html_list += '</div>\n</div>'
+    display(HTML(html_list))
+else:
+    display(HTML("<p>No suitable data found for display.</p>"))
+```
 
-- Habitat mapping
-- Species distribution
-- Human use patterns
-- Conservation priorities
-- Climate change considerations
+```{python}
+# Always display the detail view HTML elements
+display(HTML('''
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to List</button>
+    <div id="detailContent"></div>
+</div>
+'''))
+```
 
-## Integration with Salmon Conservation
+```{python}
+# Create JavaScript data object - always define, even if empty
+import json
 
-How marine planning supports Pacific salmon conservation objectives:
-- Critical habitat protection
-- Migration corridor conservation
-- Feeding area management
-- Climate adaptation planning
+if not df.empty:
+    df_json = df.to_json(orient='records')
+    columns_list = json.dumps(list(df.columns))
+else:
+    df_json = "[]"
+    columns_list = "[]"
 
-## Resources
+js_code = f"""
+<script>
+const marineData = {df_json};
+const allColumns = {columns_list};
 
-Marine planning documents, maps, and tools. 
+// Populate focus and region filters
+window.addEventListener('DOMContentLoaded', function() {{
+    const focusFilter = document.getElementById('focusFilter');
+    const regionFilter = document.getElementById('regionFilter');
+    
+    if (focusFilter && marineData && marineData.length > 0) {{
+        const focuses = [...new Set(marineData.map(item => item['Primary Focus'] || item.focus).filter(f => f && f !== 'N/A'))].sort();
+        focuses.forEach(f => {{
+            const option = document.createElement('option');
+            option.value = f;
+            option.textContent = f;
+            focusFilter.appendChild(option);
+        }});
+    }}
+    
+    if (regionFilter && marineData && marineData.length > 0) {{
+        const regions = [...new Set(marineData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {{
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        }});
+    }}
+}});
+
+function filterList() {{
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const focusFilter = document.getElementById('focusFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const items = document.querySelectorAll('.marine-item');
+    
+    items.forEach(item => {{
+        let showItem = true;
+        
+        // Search filter
+        if (searchTerm) {{
+            const itemText = item.textContent.toLowerCase();
+            if (!itemText.includes(searchTerm)) {{
+                showItem = false;
+            }}
+        }}
+        
+        // Focus filter
+        if (focusFilter && item.dataset.focus !== focusFilter) {{
+            showItem = false;
+        }}
+        
+        // Region filter
+        if (regionFilter && item.dataset.region !== regionFilter) {{
+            showItem = false;
+        }}
+        
+        item.style.display = showItem ? 'block' : 'none';
+    }});
+}}
+
+function showMarineDetails(index) {{
+    // Safety checks
+    if (!marineData || marineData.length === 0 || index >= marineData.length || index < 0) {{
+        console.error('Invalid data or index for showMarineDetails');
+        return;
+    }}
+    
+    const marine = marineData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+    
+    if (!marine || !detailView || !detailContent) return;
+    
+    let html = `<h2>${{marine['Planning Area'] || 'Marine Planning Profile'}}</h2>`;
+    
+    // Key Threats / Pressures
+    html += '<div class="detail-section"><h3><i>Key Threats / Pressures</i></h3>';
+    html += '<table class="data-table">';
+    html += '<tbody>';
+    for (let i = 0; i < 3; i++) {{
+        html += '<tr>';
+        for (let j = 0; j < 5; j++) {{
+            html += '<td>&nbsp;</td>';
+        }}
+        html += '</tr>';
+    }}
+    html += '</tbody>';
+    html += '</table>';
+    html += '</div>';
+    
+    detailContent.innerHTML = html;
+    document.querySelector('.marine-list-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}}
+
+function hideDetails() {{
+    const detailView = document.getElementById('detailView');
+    const listWrapper = document.querySelector('.marine-list-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+    
+    if (detailView) detailView.style.display = 'none';
+    if (listWrapper) listWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}}
+</script>
+"""
+
+display(HTML(js_code))
+```
+
+## Data Export
+
+```{python}
+if not df.empty:
+    display(HTML("""
+<div class="export-section">
+    <h3>Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\\n';
+    
+    marineData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\\n';
+    });
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'marine_planning.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    """))
+``` 

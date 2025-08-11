@@ -1,33 +1,403 @@
 ---
 title: "Fishery Management Unit Profiles"
-format: html
+format: 
+  html:
+    css: ../assets/css/fmu_profiles.css
+    toc: true
+    toc-depth: 2
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+jupyter: python3
 ---
 
-# Fishery Management Unit Profiles
+```{python}
+import pandas as pd
+import numpy as np
+from IPython.display import HTML, display
+import json
 
-This page provides profiles of fishery management units relevant to Pacific salmon conservation.
+# Read the Excel file (placeholder - will need actual FMU data file)
+try:
+    import os
+    file_path = '../assets/data/fmu_profiles.xlsx'  # You'll need to create this file
+    print(f"Attempting to read file: {file_path}")
+    print(f"File exists: {os.path.exists(file_path)}")
+    
+    if os.path.exists(file_path):
+        df = pd.read_excel(file_path)
+        print(f"Successfully loaded {len(df)} FMU records")
+    else:
+        # Create sample data for demonstration
+        print("Creating sample FMU data...")
+        sample_data = {
+            'FMU Name': [
+                'Fraser River Chinook', 'Georgia Strait Coho', 'West Coast Vancouver Island Chinook',
+                'Central Coast Chinook', 'North Coast Chinook', 'Fraser River Coho',
+                'Thompson River Chinook', 'Harrison River Chinook', 'Chilko Lake Sockeye',
+                'Adams River Sockeye', 'Quesnel Lake Sockeye', 'Cultus Lake Sockeye'
+            ],
+            'Region': ['Fraser', 'South Coast', 'WCVI', 'Central Coast', 'North Coast', 'Fraser'] * 2,
+            'Species': ['Chinook', 'Coho', 'Chinook', 'Chinook', 'Chinook', 'Coho'] * 2
+        }
+        df = pd.DataFrame(sample_data)
+        print(f"Created sample data with {len(df)} FMU records")
+        
+except Exception as e:
+    print(f"Error loading data: {e}")
+    # Create minimal sample data
+    df = pd.DataFrame({
+        'FMU Name': ['Sample FMU 1', 'Sample FMU 2'],
+        'Region': ['Fraser', 'Coast'],
+        'Species': ['Chinook', 'Coho']
+    })
+```
 
 ## Overview
 
-Fishery management units define the spatial and temporal boundaries for fishery management decisions.
+This page contains profiles of **{{< meta title >}}** for Pacific salmon conservation. The data includes information on `{python} len(df) if not df.empty else 0` fishery management units.
 
-## Types of Fishery Management Units
+## Search and Filter
 
-- Commercial fisheries
-- Recreational fisheries
-- First Nations fisheries
-- Terminal fisheries
-- Mixed-stock fisheries
+```{python}
+from IPython.display import HTML
 
-## Profile Information
+# Always display search controls, even if no data
+display(HTML("""
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search FMUs..." onkeyup="filterList()">
+    <select id="speciesFilter" onchange="filterList()">
+        <option value="">All Species</option>
+    </select>
+    <select id="regionFilter" onchange="filterList()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+"""))
+```
 
-Each profile includes:
-- Geographic boundaries
-- Target species
-- Fishing methods
-- Management measures
-- Conservation concerns
+## FMU List
+###### Click each item to view details
 
-## Resources
+```{python}
+if df.empty:
+    display(HTML("""
+    <p>No data to display.</p>
+    <div class="fmu-list-wrapper" style="display: none;">
+        <div id="fmuList" class="fmu-list">
+            <div class="fmu-item">No Data</div>
+        </div>
+    </div>
+    """))
 
-Detailed profiles and management documents are available here. 
+if not df.empty:
+    # Create two-column list of FMU names
+    html_list = '<div class="fmu-list-wrapper">\n<div id="fmuList" class="fmu-list">\n'
+    
+    for idx, row in df.iterrows():
+        fmu_name = str(row['FMU Name']) if pd.notna(row['FMU Name']) else 'Unknown FMU'
+        species = str(row['Species']) if pd.notna(row['Species']) else 'Unknown'
+        region = str(row['Region']) if pd.notna(row['Region']) else 'Unknown'
+        
+        html_list += f'''
+        <div class="fmu-item clickable-item" onclick="showFMUDetails({idx})" data-species="{species}" data-region="{region}">
+            <div class="fmu-name">{fmu_name}</div>
+            <div class="fmu-meta">{species} • {region}</div>
+        </div>
+        '''
+    
+    html_list += '</div>\n</div>'
+    display(HTML(html_list))
+else:
+    display(HTML("<p>No suitable data found for display.</p>"))
+```
+
+```{python}
+# Always display the detail view HTML elements
+display(HTML('''
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to List</button>
+    <div id="detailContent"></div>
+</div>
+'''))
+```
+
+```{python}
+# Create JavaScript data object - always define, even if empty
+import json
+
+if not df.empty:
+    df_json = df.to_json(orient='records')
+    columns_list = json.dumps(list(df.columns))
+else:
+    df_json = "[]"
+    columns_list = "[]"
+
+js_code = f"""
+<script>
+const fmuData = {df_json};
+const allColumns = {columns_list};
+
+// Populate species and region filters
+window.addEventListener('DOMContentLoaded', function() {{
+    const speciesFilter = document.getElementById('speciesFilter');
+    const regionFilter = document.getElementById('regionFilter');
+    
+    if (speciesFilter && fmuData && fmuData.length > 0) {{
+        const species = [...new Set(fmuData.map(item => item.Species || item.species).filter(s => s && s !== 'N/A'))].sort();
+        species.forEach(s => {{
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            speciesFilter.appendChild(option);
+        }});
+    }}
+    
+    if (regionFilter && fmuData && fmuData.length > 0) {{
+        const regions = [...new Set(fmuData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {{
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        }});
+    }}
+}});
+
+function filterList() {{
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const speciesFilter = document.getElementById('speciesFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const items = document.querySelectorAll('.fmu-item');
+    
+    items.forEach(item => {{
+        let showItem = true;
+        
+        // Search filter
+        if (searchTerm) {{
+            const itemText = item.textContent.toLowerCase();
+            if (!itemText.includes(searchTerm)) {{
+                showItem = false;
+            }}
+        }}
+        
+        // Species filter
+        if (speciesFilter && item.dataset.species !== speciesFilter) {{
+            showItem = false;
+        }}
+        
+        // Region filter
+        if (regionFilter && item.dataset.region !== regionFilter) {{
+            showItem = false;
+        }}
+        
+        item.style.display = showItem ? 'block' : 'none';
+    }});
+}}
+
+function showFMUDetails(index) {{
+    // Safety checks
+    if (!fmuData || fmuData.length === 0 || index >= fmuData.length || index < 0) {{
+        console.error('Invalid data or index for showFMUDetails');
+        return;
+    }}
+    
+    const fmu = fmuData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+    
+    if (!fmu || !detailView || !detailContent) return;
+    
+    let html = `<h2>${{fmu['FMU Name'] || 'FMU Profile'}}</h2>`;
+    
+    // Location
+    html += '<div class="detail-section"><h3><i>Location</i></h3>';
+    html += '<div class="detail-item">';
+    html += '<div class="map-placeholder">';
+    html += '<div class="map-placeholder-content">';
+    html += '<p>MAP</p>';
+    html += '<p>Location map will be displayed here</p>';
+    html += '</div></div></div></div>';
+    
+         // Basic Fishery Information
+     html += '<div class="detail-section"><h3><i>Gear</i></h3>';
+     html += '<table class="data-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {{
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {{
+             html += '<td>&nbsp;</td>';
+         }}
+         html += '</tr>';
+     }}
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+     
+     html += '<div class="detail-section"><h3><i>Participants</i></h3>';
+     html += '<table class="data-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {{
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {{
+             html += '<td>&nbsp;</td>';
+         }}
+         html += '</tr>';
+     }}
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+     
+     html += '<div class="detail-section"><h3><i>Timing</i></h3>';
+     html += '<div class="text-placeholder">';
+     html += '<p>Text</p>';
+     html += '<p>Timing information</p>';
+     html += '</div></div>';
+     
+     html += '<div class="detail-section"><h3><i>Target Stock(s)</i></h3>';
+     html += '<div class="text-placeholder">';
+     html += '<p>Text</p>';
+     html += '<p>Target stock information</p>';
+     html += '</div></div>';
+     
+     // Performance Metrics (Last 10 Years)
+     html += '<div class="detail-section"><h3><i>Performance Metrics (Last 10 Years)</i></h3>';
+     html += '<div class="metrics-grid">';
+     html += '<div class="metric-item">';
+     html += '<h4>Average Catches</h4>';
+     html += '<div class="text-placeholder">';
+     html += '<p>Catch data will be displayed here</p>';
+     html += '</div></div>';
+     html += '<div class="metric-item">';
+     html += '<h4>Landed Value</h4>';
+     html += '<div class="text-placeholder">';
+     html += '<p>Value data will be displayed here</p>';
+     html += '</div></div>';
+     html += '<div class="metric-item">';
+     html += '<h4>Average Stock Impacts</h4>';
+     html += '<div class="text-placeholder">';
+     html += '<p>Stock impact data</p>';
+     html += '</div></div>';
+     html += '</div></div>';
+     
+     // Management Information
+     html += '<div class="detail-section"><h3><i>Management Issues</i></h3>';
+     html += '<table class="data-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {{
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {{
+             html += '<td>&nbsp;</td>';
+         }}
+         html += '</tr>';
+     }}
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+     
+     html += '<div class="detail-section"><h3><i>KEY Management Measures</i></h3>';
+     html += '<table class="data-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {{
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {{
+             html += '<td>&nbsp;</td>';
+         }}
+         html += '</tr>';
+     }}
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+     
+     html += '<div class="detail-section"><h3><i>Data Collected</i></h3>';
+     html += '<table class="data-table">';
+     html += '<tbody>';
+     for (let i = 0; i < 3; i++) {{
+         html += '<tr>';
+         for (let j = 0; j < 5; j++) {{
+             html += '<td>&nbsp;</td>';
+         }}
+         html += '</tr>';
+     }}
+     html += '</tbody>';
+     html += '</table>';
+     html += '</div>';
+     
+     // Spatial Information
+     html += '<div class="detail-section"><h3><i>Maps & Spatial Data</i></h3>';
+     html += '<div class="maps-grid">';
+     html += '<div class="map-item">';
+     html += '<h4>Fishery Location</h4>';
+     html += '<div class="map-placeholder">';
+     html += '<div class="map-placeholder-content">';
+     html += '<p>Map</p>';
+     html += '<p>Fishery location map</p>';
+     html += '</div></div></div>';
+     html += '<div class="map-item">';
+     html += '<h4>Impact Heat Maps</h4>';
+     html += '<div class="map-placeholder">';
+     html += '<div class="map-placeholder-content">';
+     html += '<p>Map(s)</p>';
+     html += '<p>Impact heat maps</p>';
+     html += '</div></div></div>';
+     html += '</div></div>';
+    
+    detailContent.innerHTML = html;
+    document.querySelector('.fmu-list-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}}
+
+function hideDetails() {{
+    const detailView = document.getElementById('detailView');
+    const listWrapper = document.querySelector('.fmu-list-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+    
+    if (detailView) detailView.style.display = 'none';
+    if (listWrapper) listWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}}
+</script>
+"""
+
+display(HTML(js_code))
+```
+
+## Data Export
+
+```{python}
+if not df.empty:
+    display(HTML("""
+<div class="export-section">
+    <h3>Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\\n';
+    
+    fmuData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\\n';
+    });
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fmu_profiles.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    """))
+``` 

@@ -1,47 +1,120 @@
 ---
 title: "Management Domains"
-format: html
 ---
 
 # Management Domains
 
-This page describes the management domains used in Pacific salmon conservation planning.
+This page provides access to management domain profiles and frameworks used in Pacific salmon conservation and management. Each domain represents a specific area of management focus with associated protocols, measures, and assessment frameworks.
 
-## Overview
+## Fish-Focused Management Domains
 
-Management domains provide a framework for organizing conservation and management activities across different geographic and jurisdictional areas.
+### Fisheries
+Management domain covering fishing activities, harvesting regulations, and aquatic species control measures including catch limits, gear restrictions, and licensing requirements.
 
-## Domain Structure
+[📥 Download Fisheries Management Framework](){.btn .btn-primary}
 
-- Regional domains
-- Sub-regional domains
-- Local management areas
-- Cross-boundary considerations
+---
 
-## Domain Characteristics
+### Aquaculture and Hatcheries  
+Management domain covering marine and freshwater aquaculture operations, artificial breeding programs, and hatchery management including genetic considerations and fish health protocols.
 
-Each management domain is defined by:
-- Geographic boundaries
-- Ecological characteristics
-- Jurisdictional authorities
-- Management objectives
-- Conservation priorities
+[📥 Download Aquaculture and Hatcheries Framework](){.btn .btn-primary}
 
-## Coordination Mechanisms
+---
 
-- Inter-agency coordination
-- Indigenous government partnerships
-- Stakeholder engagement
-- Transboundary cooperation
+### Species Status and Assessment
+Management domain covering biodiversity assessment, species risk evaluation, and conservation status determinations including endangered, threatened, and extirpated species classifications.
 
-## Implementation
+[📥 Download Species Status and Assessment Framework](){.btn .btn-primary}
 
-How management domains are applied in practice:
-- Planning processes
-- Resource allocation
-- Monitoring and assessment
-- Adaptive management
+---
 
-## Resources
+## Habitat-Focused Management Domains
 
-Management domain maps, descriptions, and coordination frameworks. 
+### Water Use and Watercourse Modifications
+Management domain covering dams, water management systems, diversions, and aquatic ecosystem modifications including fish passage, habitat restoration, and riparian zone management.
+
+[📥 Download Water Use and Watercourse Modifications Framework](){.btn .btn-primary}
+
+---
+
+### Climate Change and Natural Disasters
+Management domain covering climate-related impacts including temperature changes, precipitation patterns, acidification, sea-level rise, drought, and flood hazard management.
+
+[📥 Download Climate Change and Natural Disasters Framework](){.btn .btn-primary}
+
+---
+
+### Invasive Species and Disease
+Management domain covering non-native species management, pathogen control, disease prevention, and biocontrol measures including invasive species monitoring and response protocols.
+
+[📥 Download Invasive Species and Disease Framework](){.btn .btn-primary}
+
+---
+
+### Pollution
+Management domain covering water-borne pollutants, effluent management, chemical contamination, and water quality protection including toxic substance control and waste management.
+
+[📥 Download Pollution Management Framework](){.btn .btn-primary}
+
+---
+
+### Transportation Infrastructure
+Management domain covering roads, bridges, shipping lanes, utility corridors, and transportation-related impacts on aquatic ecosystems including crossing design and mitigation measures.
+
+[📥 Download Transportation Infrastructure Framework](){.btn .btn-primary}
+
+---
+
+### Forest and Range
+Management domain covering logging operations, forest landscape management, plantation activities, range practices, and terrestrial resource use impacts on aquatic systems.
+
+[📥 Download Forest and Range Framework](){.btn .btn-primary}
+
+---
+
+### Agriculture
+Management domain covering agricultural operations, farm practices, and crop production impacts on aquatic ecosystems including nutrient management and land use planning.
+
+[📥 Download Agriculture Framework](){.btn .btn-primary}
+
+---
+
+### Mining and Energy
+Management domain covering energy production, mining operations, and renewable energy development including tidal energy projects and their impacts on marine and freshwater systems.
+
+[📥 Download Mining and Energy Framework](){.btn .btn-primary}
+
+---
+
+### Human Disturbance
+Management domain covering research activities, recreational impacts, and other human disturbances that affect fish habitat and aquatic ecosystem integrity.
+
+[📥 Download Human Disturbance Framework](){.btn .btn-primary}
+
+---
+
+## Governance-Focused Management Domains
+
+### Spatial Designation
+Management domain covering protected areas, conservation zones, land use planning, management units, park reserves, and sensitive area designations including boundary management and land reserve systems.
+
+[📥 Download Spatial Designation Framework](){.btn .btn-primary}
+
+---
+
+### Governance, Policy, and Organizational Structure
+Management domain covering institutional frameworks, committee structures, water management authorities, and organizational systems that support salmon conservation and management.
+
+[📥 Download Governance and Policy Framework](){.btn .btn-primary}
+
+---
+
+## Additional Resources
+
+For more information about specific management frameworks and their implementation, please contact the relevant management authorities or consult the detailed assessment protocols for each domain.
+
+### Related Pages
+- [Stock Management Unit Profiles](stock-management-unit-profiles.qmd)
+- [Fishery Management Unit Profiles](fishery-management-unit-profiles.qmd)
+- [Regional Management and Assessment Frameworks](regional-management-and-assessment-frameworks.qmd) 
