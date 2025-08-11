@@ -4,7 +4,7 @@
     "href": "pages/watershed-profiles.html",
     "title": "Watershed Profiles",
     "section": "",
-    "text": "This page contains detailed profiles of watersheds important for Pacific salmon conservation.\n\n\nWatershed profiles provide comprehensive information about the physical, biological, and management characteristics of salmon-bearing watersheds.\n\n\n\n\nMajor river systems\nCoastal watersheds\nUrban watersheds\nTransboundary watersheds\n\n\n\n\nEach watershed profile includes: - Physical characteristics - Habitat conditions - Species presence and abundance - Conservation status - Restoration activities - Management considerations\n\n\n\nLinks to interactive watershed mapping tools and resources.\n\n\n\nAccess to detailed watershed assessments and supporting data.",
+    "text": "Attempting to read file: ../assets/data/watershed_profiles.xlsx\nFile exists: False\nCreating sample watershed data...\nCreated sample data with 12 watershed records",
     "crumbs": [
       "Watershed Profiles"
     ]
@@ -13,48 +13,38 @@
     "objectID": "pages/watershed-profiles.html#overview",
     "href": "pages/watershed-profiles.html#overview",
     "title": "Watershed Profiles",
-    "section": "",
-    "text": "Watershed profiles provide comprehensive information about the physical, biological, and management characteristics of salmon-bearing watersheds.",
+    "section": "Overview",
+    "text": "Overview\nThis page contains profiles of Watershed Profiles for Pacific salmon conservation. The data includes information on 12 watersheds.",
     "crumbs": [
       "Watershed Profiles"
     ]
   },
   {
-    "objectID": "pages/watershed-profiles.html#watershed-categories",
-    "href": "pages/watershed-profiles.html#watershed-categories",
+    "objectID": "pages/watershed-profiles.html#search-and-filter",
+    "href": "pages/watershed-profiles.html#search-and-filter",
     "title": "Watershed Profiles",
-    "section": "",
-    "text": "Major river systems\nCoastal watersheds\nUrban watersheds\nTransboundary watersheds",
+    "section": "Search and Filter",
+    "text": "Search and Filter\n\n\n\n\n    \n    \n        All Species\n    \n    \n        All Regions",
     "crumbs": [
       "Watershed Profiles"
     ]
   },
   {
-    "objectID": "pages/watershed-profiles.html#profile-components",
-    "href": "pages/watershed-profiles.html#profile-components",
+    "objectID": "pages/watershed-profiles.html#watershed-list",
+    "href": "pages/watershed-profiles.html#watershed-list",
     "title": "Watershed Profiles",
-    "section": "",
-    "text": "Each watershed profile includes: - Physical characteristics - Habitat conditions - Species presence and abundance - Conservation status - Restoration activities - Management considerations",
+    "section": "Watershed List",
+    "text": "Watershed List\n\nClick each item to view details\n\n\n\n\n\n        \n            Fraser River Watershed\n            Chinook • Fraser\n        \n        \n        \n            Thompson River Watershed\n            Coho • Fraser\n        \n        \n        \n            Columbia River Watershed\n            Chinook • Columbia\n        \n        \n        \n            Skeena River Watershed\n            Chinook • North Coast\n        \n        \n        \n            Nass River Watershed\n            Chinook • North Coast\n        \n        \n        \n            Stikine River Watershed\n            Coho • North Coast\n        \n        \n        \n            Taku River Watershed\n            Chinook • Fraser\n        \n        \n        \n            Alsek River Watershed\n            Coho • Fraser\n        \n        \n        \n            Yukon River Watershed\n            Chinook • Columbia\n        \n        \n        \n            Peace River Watershed\n            Chinook • North Coast\n        \n        \n        \n            Athabasca River Watershed\n            Chinook • North Coast\n        \n        \n        \n            Mackenzie River Watershed\n            Coho • North Coast\n        \n        \n\n\n\n\n\n\n\n    ← Back to List",
     "crumbs": [
       "Watershed Profiles"
     ]
   },
   {
-    "objectID": "pages/watershed-profiles.html#interactive-maps",
-    "href": "pages/watershed-profiles.html#interactive-maps",
+    "objectID": "pages/watershed-profiles.html#data-export",
+    "href": "pages/watershed-profiles.html#data-export",
     "title": "Watershed Profiles",
-    "section": "",
-    "text": "Links to interactive watershed mapping tools and resources.",
-    "crumbs": [
-      "Watershed Profiles"
-    ]
-  },
-  {
-    "objectID": "pages/watershed-profiles.html#resources",
-    "href": "pages/watershed-profiles.html#resources",
-    "title": "Watershed Profiles",
-    "section": "",
-    "text": "Access to detailed watershed assessments and supporting data.",
+    "section": "Data Export",
+    "text": "Data Export\n\n\n\n\n    Export Data\n    Download as CSV",
     "crumbs": [
       "Watershed Profiles"
     ]
@@ -74,67 +64,47 @@
     "href": "pages/management-domains.html",
     "title": "Management Domains",
     "section": "",
-    "text": "This page describes the management domains used in Pacific salmon conservation planning.\n\n\nManagement domains provide a framework for organizing conservation and management activities across different geographic and jurisdictional areas.\n\n\n\n\nRegional domains\nSub-regional domains\nLocal management areas\nCross-boundary considerations\n\n\n\n\nEach management domain is defined by: - Geographic boundaries - Ecological characteristics - Jurisdictional authorities - Management objectives - Conservation priorities\n\n\n\n\nInter-agency coordination\nIndigenous government partnerships\nStakeholder engagement\nTransboundary cooperation\n\n\n\n\nHow management domains are applied in practice: - Planning processes - Resource allocation - Monitoring and assessment - Adaptive management\n\n\n\nManagement domain maps, descriptions, and coordination frameworks.",
+    "text": "This page provides access to management domain profiles and frameworks used in Pacific salmon conservation and management. Each domain represents a specific area of management focus with associated protocols, measures, and assessment frameworks.\n\n\n\n\nManagement domain covering fishing activities, harvesting regulations, and aquatic species control measures including catch limits, gear restrictions, and licensing requirements.\n📥 Download Fisheries Management Framework\n\n\n\n\nManagement domain covering marine and freshwater aquaculture operations, artificial breeding programs, and hatchery management including genetic considerations and fish health protocols.\n📥 Download Aquaculture and Hatcheries Framework\n\n\n\n\nManagement domain covering biodiversity assessment, species risk evaluation, and conservation status determinations including endangered, threatened, and extirpated species classifications.\n📥 Download Species Status and Assessment Framework\n\n\n\n\n\n\n\nManagement domain covering dams, water management systems, diversions, and aquatic ecosystem modifications including fish passage, habitat restoration, and riparian zone management.\n📥 Download Water Use and Watercourse Modifications Framework\n\n\n\n\nManagement domain covering climate-related impacts including temperature changes, precipitation patterns, acidification, sea-level rise, drought, and flood hazard management.\n📥 Download Climate Change and Natural Disasters Framework\n\n\n\n\nManagement domain covering non-native species management, pathogen control, disease prevention, and biocontrol measures including invasive species monitoring and response protocols.\n📥 Download Invasive Species and Disease Framework\n\n\n\n\nManagement domain covering water-borne pollutants, effluent management, chemical contamination, and water quality protection including toxic substance control and waste management.\n📥 Download Pollution Management Framework\n\n\n\n\nManagement domain covering roads, bridges, shipping lanes, utility corridors, and transportation-related impacts on aquatic ecosystems including crossing design and mitigation measures.\n📥 Download Transportation Infrastructure Framework\n\n\n\n\nManagement domain covering logging operations, forest landscape management, plantation activities, range practices, and terrestrial resource use impacts on aquatic systems.\n📥 Download Forest and Range Framework\n\n\n\n\nManagement domain covering agricultural operations, farm practices, and crop production impacts on aquatic ecosystems including nutrient management and land use planning.\n📥 Download Agriculture Framework\n\n\n\n\nManagement domain covering energy production, mining operations, and renewable energy development including tidal energy projects and their impacts on marine and freshwater systems.\n📥 Download Mining and Energy Framework\n\n\n\n\nManagement domain covering research activities, recreational impacts, and other human disturbances that affect fish habitat and aquatic ecosystem integrity.\n📥 Download Human Disturbance Framework\n\n\n\n\n\n\n\nManagement domain covering protected areas, conservation zones, land use planning, management units, park reserves, and sensitive area designations including boundary management and land reserve systems.\n📥 Download Spatial Designation Framework\n\n\n\n\nManagement domain covering institutional frameworks, committee structures, water management authorities, and organizational systems that support salmon conservation and management.\n📥 Download Governance and Policy Framework\n\n\n\n\n\nFor more information about specific management frameworks and their implementation, please contact the relevant management authorities or consult the detailed assessment protocols for each domain.\n\n\n\nStock Management Unit Profiles\nFishery Management Unit Profiles\nRegional Management and Assessment Frameworks",
     "crumbs": [
       "Management Domains"
     ]
   },
   {
-    "objectID": "pages/management-domains.html#overview",
-    "href": "pages/management-domains.html#overview",
+    "objectID": "pages/management-domains.html#fish-focused-management-domains",
+    "href": "pages/management-domains.html#fish-focused-management-domains",
     "title": "Management Domains",
     "section": "",
-    "text": "Management domains provide a framework for organizing conservation and management activities across different geographic and jurisdictional areas.",
+    "text": "Management domain covering fishing activities, harvesting regulations, and aquatic species control measures including catch limits, gear restrictions, and licensing requirements.\n📥 Download Fisheries Management Framework\n\n\n\n\nManagement domain covering marine and freshwater aquaculture operations, artificial breeding programs, and hatchery management including genetic considerations and fish health protocols.\n📥 Download Aquaculture and Hatcheries Framework\n\n\n\n\nManagement domain covering biodiversity assessment, species risk evaluation, and conservation status determinations including endangered, threatened, and extirpated species classifications.\n📥 Download Species Status and Assessment Framework",
     "crumbs": [
       "Management Domains"
     ]
   },
   {
-    "objectID": "pages/management-domains.html#domain-structure",
-    "href": "pages/management-domains.html#domain-structure",
+    "objectID": "pages/management-domains.html#habitat-focused-management-domains",
+    "href": "pages/management-domains.html#habitat-focused-management-domains",
     "title": "Management Domains",
     "section": "",
-    "text": "Regional domains\nSub-regional domains\nLocal management areas\nCross-boundary considerations",
+    "text": "Management domain covering dams, water management systems, diversions, and aquatic ecosystem modifications including fish passage, habitat restoration, and riparian zone management.\n📥 Download Water Use and Watercourse Modifications Framework\n\n\n\n\nManagement domain covering climate-related impacts including temperature changes, precipitation patterns, acidification, sea-level rise, drought, and flood hazard management.\n📥 Download Climate Change and Natural Disasters Framework\n\n\n\n\nManagement domain covering non-native species management, pathogen control, disease prevention, and biocontrol measures including invasive species monitoring and response protocols.\n📥 Download Invasive Species and Disease Framework\n\n\n\n\nManagement domain covering water-borne pollutants, effluent management, chemical contamination, and water quality protection including toxic substance control and waste management.\n📥 Download Pollution Management Framework\n\n\n\n\nManagement domain covering roads, bridges, shipping lanes, utility corridors, and transportation-related impacts on aquatic ecosystems including crossing design and mitigation measures.\n📥 Download Transportation Infrastructure Framework\n\n\n\n\nManagement domain covering logging operations, forest landscape management, plantation activities, range practices, and terrestrial resource use impacts on aquatic systems.\n📥 Download Forest and Range Framework\n\n\n\n\nManagement domain covering agricultural operations, farm practices, and crop production impacts on aquatic ecosystems including nutrient management and land use planning.\n📥 Download Agriculture Framework\n\n\n\n\nManagement domain covering energy production, mining operations, and renewable energy development including tidal energy projects and their impacts on marine and freshwater systems.\n📥 Download Mining and Energy Framework\n\n\n\n\nManagement domain covering research activities, recreational impacts, and other human disturbances that affect fish habitat and aquatic ecosystem integrity.\n📥 Download Human Disturbance Framework",
     "crumbs": [
       "Management Domains"
     ]
   },
   {
-    "objectID": "pages/management-domains.html#domain-characteristics",
-    "href": "pages/management-domains.html#domain-characteristics",
+    "objectID": "pages/management-domains.html#governance-focused-management-domains",
+    "href": "pages/management-domains.html#governance-focused-management-domains",
     "title": "Management Domains",
     "section": "",
-    "text": "Each management domain is defined by: - Geographic boundaries - Ecological characteristics - Jurisdictional authorities - Management objectives - Conservation priorities",
+    "text": "Management domain covering protected areas, conservation zones, land use planning, management units, park reserves, and sensitive area designations including boundary management and land reserve systems.\n📥 Download Spatial Designation Framework\n\n\n\n\nManagement domain covering institutional frameworks, committee structures, water management authorities, and organizational systems that support salmon conservation and management.\n📥 Download Governance and Policy Framework",
     "crumbs": [
       "Management Domains"
     ]
   },
   {
-    "objectID": "pages/management-domains.html#coordination-mechanisms",
-    "href": "pages/management-domains.html#coordination-mechanisms",
+    "objectID": "pages/management-domains.html#additional-resources",
+    "href": "pages/management-domains.html#additional-resources",
     "title": "Management Domains",
     "section": "",
-    "text": "Inter-agency coordination\nIndigenous government partnerships\nStakeholder engagement\nTransboundary cooperation",
-    "crumbs": [
-      "Management Domains"
-    ]
-  },
-  {
-    "objectID": "pages/management-domains.html#implementation",
-    "href": "pages/management-domains.html#implementation",
-    "title": "Management Domains",
-    "section": "",
-    "text": "How management domains are applied in practice: - Planning processes - Resource allocation - Monitoring and assessment - Adaptive management",
-    "crumbs": [
-      "Management Domains"
-    ]
-  },
-  {
-    "objectID": "pages/management-domains.html#resources",
-    "href": "pages/management-domains.html#resources",
-    "title": "Management Domains",
-    "section": "",
-    "text": "Management domain maps, descriptions, and coordination frameworks.",
+    "text": "For more information about specific management frameworks and their implementation, please contact the relevant management authorities or consult the detailed assessment protocols for each domain.\n\n\n\nStock Management Unit Profiles\nFishery Management Unit Profiles\nRegional Management and Assessment Frameworks",
     "crumbs": [
       "Management Domains"
     ]
@@ -151,7 +121,7 @@
     "href": "pages/fishery-management-unit-profiles.html",
     "title": "Fishery Management Unit Profiles",
     "section": "",
-    "text": "This page provides profiles of fishery management units relevant to Pacific salmon conservation.\n\n\nFishery management units define the spatial and temporal boundaries for fishery management decisions.\n\n\n\n\nCommercial fisheries\nRecreational fisheries\nFirst Nations fisheries\nTerminal fisheries\nMixed-stock fisheries\n\n\n\n\nEach profile includes: - Geographic boundaries - Target species - Fishing methods - Management measures - Conservation concerns\n\n\n\nDetailed profiles and management documents are available here.",
+    "text": "Attempting to read file: ../assets/data/fmu_profiles.xlsx\nFile exists: False\nCreating sample FMU data...\nCreated sample data with 12 FMU records",
     "crumbs": [
       "Fishery Management Unit Profiles"
     ]
@@ -160,38 +130,38 @@
     "objectID": "pages/fishery-management-unit-profiles.html#overview",
     "href": "pages/fishery-management-unit-profiles.html#overview",
     "title": "Fishery Management Unit Profiles",
-    "section": "",
-    "text": "Fishery management units define the spatial and temporal boundaries for fishery management decisions.",
+    "section": "Overview",
+    "text": "Overview\nThis page contains profiles of Fishery Management Unit Profiles for Pacific salmon conservation. The data includes information on 12 fishery management units.",
     "crumbs": [
       "Fishery Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/fishery-management-unit-profiles.html#types-of-fishery-management-units",
-    "href": "pages/fishery-management-unit-profiles.html#types-of-fishery-management-units",
+    "objectID": "pages/fishery-management-unit-profiles.html#search-and-filter",
+    "href": "pages/fishery-management-unit-profiles.html#search-and-filter",
     "title": "Fishery Management Unit Profiles",
-    "section": "",
-    "text": "Commercial fisheries\nRecreational fisheries\nFirst Nations fisheries\nTerminal fisheries\nMixed-stock fisheries",
+    "section": "Search and Filter",
+    "text": "Search and Filter\n\n\n\n\n    \n    \n        All Species\n    \n    \n        All Regions",
     "crumbs": [
       "Fishery Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/fishery-management-unit-profiles.html#profile-information",
-    "href": "pages/fishery-management-unit-profiles.html#profile-information",
+    "objectID": "pages/fishery-management-unit-profiles.html#fmu-list",
+    "href": "pages/fishery-management-unit-profiles.html#fmu-list",
     "title": "Fishery Management Unit Profiles",
-    "section": "",
-    "text": "Each profile includes: - Geographic boundaries - Target species - Fishing methods - Management measures - Conservation concerns",
+    "section": "FMU List",
+    "text": "FMU List\n\nClick each item to view details\n\n\n\n\n\n        \n            Fraser River Chinook\n            Chinook • Fraser\n        \n        \n        \n            Georgia Strait Coho\n            Coho • South Coast\n        \n        \n        \n            West Coast Vancouver Island Chinook\n            Chinook • WCVI\n        \n        \n        \n            Central Coast Chinook\n            Chinook • Central Coast\n        \n        \n        \n            North Coast Chinook\n            Chinook • North Coast\n        \n        \n        \n            Fraser River Coho\n            Coho • Fraser\n        \n        \n        \n            Thompson River Chinook\n            Chinook • Fraser\n        \n        \n        \n            Harrison River Chinook\n            Coho • South Coast\n        \n        \n        \n            Chilko Lake Sockeye\n            Chinook • WCVI\n        \n        \n        \n            Adams River Sockeye\n            Chinook • Central Coast\n        \n        \n        \n            Quesnel Lake Sockeye\n            Chinook • North Coast\n        \n        \n        \n            Cultus Lake Sockeye\n            Coho • Fraser\n        \n        \n\n\n\n\n\n\n\n    ← Back to List",
     "crumbs": [
       "Fishery Management Unit Profiles"
     ]
   },
   {
-    "objectID": "pages/fishery-management-unit-profiles.html#resources",
-    "href": "pages/fishery-management-unit-profiles.html#resources",
+    "objectID": "pages/fishery-management-unit-profiles.html#data-export",
+    "href": "pages/fishery-management-unit-profiles.html#data-export",
     "title": "Fishery Management Unit Profiles",
-    "section": "",
-    "text": "Detailed profiles and management documents are available here.",
+    "section": "Data Export",
+    "text": "Data Export\n\n\n\n\n    Export Data\n    Download as CSV",
     "crumbs": [
       "Fishery Management Unit Profiles"
     ]
@@ -201,7 +171,7 @@
     "href": "pages/marine-planning-profile.html",
     "title": "Marine Planning Profile",
     "section": "",
-    "text": "This page provides information about marine planning initiatives relevant to Pacific salmon conservation.\n\n\nMarine planning integrates conservation and management considerations across marine ecosystems where Pacific salmon spend portions of their life cycle.\n\n\n\n\nCoastal marine areas\nEstuarine environments\nNear-shore habitats\nOpen ocean zones\n\n\n\n\n\nHabitat mapping\nSpecies distribution\nHuman use patterns\nConservation priorities\nClimate change considerations\n\n\n\n\nHow marine planning supports Pacific salmon conservation objectives: - Critical habitat protection - Migration corridor conservation - Feeding area management - Climate adaptation planning\n\n\n\nMarine planning documents, maps, and tools.",
+    "text": "Attempting to read file: ../assets/data/marine_planning.xlsx\nFile exists: False\nCreating sample marine planning data...\nCreated sample data with 12 marine planning records",
     "crumbs": [
       "Marine Planning Profile"
     ]
@@ -210,8 +180,18 @@
     "objectID": "pages/marine-planning-profile.html#overview",
     "href": "pages/marine-planning-profile.html#overview",
     "title": "Marine Planning Profile",
-    "section": "",
-    "text": "Marine planning integrates conservation and management considerations across marine ecosystems where Pacific salmon spend portions of their life cycle.",
+    "section": "Overview",
+    "text": "Overview\nThis page contains profiles of Marine Planning Profile for Pacific salmon conservation. The data includes information on 12 marine planning areas.",
+    "crumbs": [
+      "Marine Planning Profile"
+    ]
+  },
+  {
+    "objectID": "pages/marine-planning-profile.html#search-and-filter",
+    "href": "pages/marine-planning-profile.html#search-and-filter",
+    "title": "Marine Planning Profile",
+    "section": "Search and Filter",
+    "text": "Search and Filter\n\n\n\n\n    \n    \n        All Focus Areas\n    \n    \n        All Regions",
     "crumbs": [
       "Marine Planning Profile"
     ]
@@ -220,38 +200,18 @@
     "objectID": "pages/marine-planning-profile.html#marine-planning-areas",
     "href": "pages/marine-planning-profile.html#marine-planning-areas",
     "title": "Marine Planning Profile",
-    "section": "",
-    "text": "Coastal marine areas\nEstuarine environments\nNear-shore habitats\nOpen ocean zones",
+    "section": "Marine Planning Areas",
+    "text": "Marine Planning Areas\n\nClick each item to view details\n\n\n\n\n\n        \n            Strait of Georgia\n            Salmon Migration • South Coast\n        \n        \n        \n            Juan de Fuca Strait\n            Spawning Areas • South Coast\n        \n        \n        \n            West Coast Vancouver Island\n            Feeding Areas • WCVI\n        \n        \n        \n            Central Coast\n            Critical Habitat • Central Coast\n        \n        \n        \n            North Coast\n            Migration Routes • North Coast\n        \n        \n        \n            Haida Gwaii\n            Nursery Areas • Haida Gwaii\n        \n        \n        \n            Dixon Entrance\n            Salmon Migration • South Coast\n        \n        \n        \n            Hecate Strait\n            Spawning Areas • South Coast\n        \n        \n        \n            Queen Charlotte Sound\n            Feeding Areas • WCVI\n        \n        \n        \n            Johnstone Strait\n            Critical Habitat • Central Coast\n        \n        \n        \n            Discovery Passage\n            Migration Routes • North Coast\n        \n        \n        \n            Burrard Inlet\n            Nursery Areas • Haida Gwaii\n        \n        \n\n\n\n\n\n\n\n    ← Back to List",
     "crumbs": [
       "Marine Planning Profile"
     ]
   },
   {
-    "objectID": "pages/marine-planning-profile.html#key-planning-elements",
-    "href": "pages/marine-planning-profile.html#key-planning-elements",
+    "objectID": "pages/marine-planning-profile.html#data-export",
+    "href": "pages/marine-planning-profile.html#data-export",
     "title": "Marine Planning Profile",
-    "section": "",
-    "text": "Habitat mapping\nSpecies distribution\nHuman use patterns\nConservation priorities\nClimate change considerations",
-    "crumbs": [
-      "Marine Planning Profile"
-    ]
-  },
-  {
-    "objectID": "pages/marine-planning-profile.html#integration-with-salmon-conservation",
-    "href": "pages/marine-planning-profile.html#integration-with-salmon-conservation",
-    "title": "Marine Planning Profile",
-    "section": "",
-    "text": "How marine planning supports Pacific salmon conservation objectives: - Critical habitat protection - Migration corridor conservation - Feeding area management - Climate adaptation planning",
-    "crumbs": [
-      "Marine Planning Profile"
-    ]
-  },
-  {
-    "objectID": "pages/marine-planning-profile.html#resources",
-    "href": "pages/marine-planning-profile.html#resources",
-    "title": "Marine Planning Profile",
-    "section": "",
-    "text": "Marine planning documents, maps, and tools.",
+    "section": "Data Export",
+    "text": "Data Export\n\n\n\n\n    Export Data\n    Download as CSV",
     "crumbs": [
       "Marine Planning Profile"
     ]

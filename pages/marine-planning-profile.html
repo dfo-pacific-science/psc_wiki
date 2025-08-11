@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,9 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/marine_planning.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -165,17 +169,13 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#marine-planning-profile" id="toc-marine-planning-profile" class="nav-link active" data-scroll-target="#marine-planning-profile">Marine Planning Profile</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#search-and-filter" id="toc-search-and-filter" class="nav-link" data-scroll-target="#search-and-filter">Search and Filter</a></li>
   <li><a href="#marine-planning-areas" id="toc-marine-planning-areas" class="nav-link" data-scroll-target="#marine-planning-areas">Marine Planning Areas</a></li>
-  <li><a href="#key-planning-elements" id="toc-key-planning-elements" class="nav-link" data-scroll-target="#key-planning-elements">Key Planning Elements</a></li>
-  <li><a href="#integration-with-salmon-conservation" id="toc-integration-with-salmon-conservation" class="nav-link" data-scroll-target="#integration-with-salmon-conservation">Integration with Salmon Conservation</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul></li>
+  <li><a href="#data-export" id="toc-data-export" class="nav-link" data-scroll-target="#data-export">Data Export</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/marine-planning-profile.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/marine-planning-profile.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/marine-planning-profile.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/marine-planning-profile.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,42 +199,268 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="marine-planning-profile" class="level1">
-<h1>Marine Planning Profile</h1>
-<p>This page provides information about marine planning initiatives relevant to Pacific salmon conservation.</p>
+<div id="2b76bb92" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Attempting to read file: ../assets/data/marine_planning.xlsx
+File exists: False
+Creating sample marine planning data...
+Created sample data with 12 marine planning records</code></pre>
+</div>
+</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Marine planning integrates conservation and management considerations across marine ecosystems where Pacific salmon spend portions of their life cycle.</p>
+<p>This page contains profiles of <strong>Marine Planning Profile</strong> for Pacific salmon conservation. The data includes information on 12 marine planning areas.</p>
+</section>
+<section id="search-and-filter" class="level2">
+<h2 class="anchored" data-anchor-id="search-and-filter">Search and Filter</h2>
+<div id="8b516944" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display no-overflow-x">
+
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search marine areas..." onkeyup="filterList()">
+    <select id="focusFilter" onchange="filterList()">
+        <option value="">All Focus Areas</option>
+    </select>
+    <select id="regionFilter" onchange="filterList()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+</div>
+</div>
 </section>
 <section id="marine-planning-areas" class="level2">
 <h2 class="anchored" data-anchor-id="marine-planning-areas">Marine Planning Areas</h2>
-<ul>
-<li>Coastal marine areas</li>
-<li>Estuarine environments</li>
-<li>Near-shore habitats</li>
-<li>Open ocean zones</li>
-</ul>
+<section id="click-each-item-to-view-details" class="level6">
+<h6 class="anchored" data-anchor-id="click-each-item-to-view-details">Click each item to view details</h6>
+<div id="2796d582" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="marine-list-wrapper">
+<div id="marineList" class="marine-list">
+
+        <div class="marine-item clickable-item" onclick="showMarineDetails(0)" data-focus="Salmon Migration" data-region="South Coast">
+            <div class="marine-name">Strait of Georgia</div>
+            <div class="marine-meta">Salmon Migration • South Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(1)" data-focus="Spawning Areas" data-region="South Coast">
+            <div class="marine-name">Juan de Fuca Strait</div>
+            <div class="marine-meta">Spawning Areas • South Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(2)" data-focus="Feeding Areas" data-region="WCVI">
+            <div class="marine-name">West Coast Vancouver Island</div>
+            <div class="marine-meta">Feeding Areas • WCVI</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(3)" data-focus="Critical Habitat" data-region="Central Coast">
+            <div class="marine-name">Central Coast</div>
+            <div class="marine-meta">Critical Habitat • Central Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(4)" data-focus="Migration Routes" data-region="North Coast">
+            <div class="marine-name">North Coast</div>
+            <div class="marine-meta">Migration Routes • North Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(5)" data-focus="Nursery Areas" data-region="Haida Gwaii">
+            <div class="marine-name">Haida Gwaii</div>
+            <div class="marine-meta">Nursery Areas • Haida Gwaii</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(6)" data-focus="Salmon Migration" data-region="South Coast">
+            <div class="marine-name">Dixon Entrance</div>
+            <div class="marine-meta">Salmon Migration • South Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(7)" data-focus="Spawning Areas" data-region="South Coast">
+            <div class="marine-name">Hecate Strait</div>
+            <div class="marine-meta">Spawning Areas • South Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(8)" data-focus="Feeding Areas" data-region="WCVI">
+            <div class="marine-name">Queen Charlotte Sound</div>
+            <div class="marine-meta">Feeding Areas • WCVI</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(9)" data-focus="Critical Habitat" data-region="Central Coast">
+            <div class="marine-name">Johnstone Strait</div>
+            <div class="marine-meta">Critical Habitat • Central Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(10)" data-focus="Migration Routes" data-region="North Coast">
+            <div class="marine-name">Discovery Passage</div>
+            <div class="marine-meta">Migration Routes • North Coast</div>
+        </div>
+        
+        <div class="marine-item clickable-item" onclick="showMarineDetails(11)" data-focus="Nursery Areas" data-region="Haida Gwaii">
+            <div class="marine-name">Burrard Inlet</div>
+            <div class="marine-meta">Nursery Areas • Haida Gwaii</div>
+        </div>
+        </div>
+</div>
+</div>
+</div>
+<div id="4b763b47" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to List</button>
+    <div id="detailContent"></div>
+</div>
+</div>
+</div>
+<div id="8ff1a7a9" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<script>
+const marineData = [{"Planning Area":"Strait of Georgia","Region":"South Coast","Primary Focus":"Salmon Migration"},{"Planning Area":"Juan de Fuca Strait","Region":"South Coast","Primary Focus":"Spawning Areas"},{"Planning Area":"West Coast Vancouver Island","Region":"WCVI","Primary Focus":"Feeding Areas"},{"Planning Area":"Central Coast","Region":"Central Coast","Primary Focus":"Critical Habitat"},{"Planning Area":"North Coast","Region":"North Coast","Primary Focus":"Migration Routes"},{"Planning Area":"Haida Gwaii","Region":"Haida Gwaii","Primary Focus":"Nursery Areas"},{"Planning Area":"Dixon Entrance","Region":"South Coast","Primary Focus":"Salmon Migration"},{"Planning Area":"Hecate Strait","Region":"South Coast","Primary Focus":"Spawning Areas"},{"Planning Area":"Queen Charlotte Sound","Region":"WCVI","Primary Focus":"Feeding Areas"},{"Planning Area":"Johnstone Strait","Region":"Central Coast","Primary Focus":"Critical Habitat"},{"Planning Area":"Discovery Passage","Region":"North Coast","Primary Focus":"Migration Routes"},{"Planning Area":"Burrard Inlet","Region":"Haida Gwaii","Primary Focus":"Nursery Areas"}];
+const allColumns = ["Planning Area", "Region", "Primary Focus"];
+
+// Populate focus and region filters
+window.addEventListener('DOMContentLoaded', function() {
+    const focusFilter = document.getElementById('focusFilter');
+    const regionFilter = document.getElementById('regionFilter');
+
+    if (focusFilter && marineData && marineData.length > 0) {
+        const focuses = [...new Set(marineData.map(item => item['Primary Focus'] || item.focus).filter(f => f && f !== 'N/A'))].sort();
+        focuses.forEach(f => {
+            const option = document.createElement('option');
+            option.value = f;
+            option.textContent = f;
+            focusFilter.appendChild(option);
+        });
+    }
+
+    if (regionFilter && marineData && marineData.length > 0) {
+        const regions = [...new Set(marineData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        });
+    }
+});
+
+function filterList() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const focusFilter = document.getElementById('focusFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const items = document.querySelectorAll('.marine-item');
+
+    items.forEach(item => {
+        let showItem = true;
+
+        // Search filter
+        if (searchTerm) {
+            const itemText = item.textContent.toLowerCase();
+            if (!itemText.includes(searchTerm)) {
+                showItem = false;
+            }
+        }
+
+        // Focus filter
+        if (focusFilter && item.dataset.focus !== focusFilter) {
+            showItem = false;
+        }
+
+        // Region filter
+        if (regionFilter && item.dataset.region !== regionFilter) {
+            showItem = false;
+        }
+
+        item.style.display = showItem ? 'block' : 'none';
+    });
+}
+
+function showMarineDetails(index) {
+    // Safety checks
+    if (!marineData || marineData.length === 0 || index >= marineData.length || index < 0) {
+        console.error('Invalid data or index for showMarineDetails');
+        return;
+    }
+
+    const marine = marineData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+
+    if (!marine || !detailView || !detailContent) return;
+
+    let html = `<h2>${marine['Planning Area'] || 'Marine Planning Profile'}</h2>`;
+
+    // Key Threats / Pressures
+    html += '<div class="detail-section"><h3><i>Key Threats / Pressures</i></h3>';
+    html += '<table class="data-table">';
+    html += '<tbody>';
+    for (let i = 0; i < 3; i++) {
+        html += '<tr>';
+        for (let j = 0; j < 5; j++) {
+            html += '<td>&nbsp;</td>';
+        }
+        html += '</tr>';
+    }
+    html += '</tbody>';
+    html += '</table>';
+    html += '</div>';
+
+    detailContent.innerHTML = html;
+    document.querySelector('.marine-list-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}
+
+function hideDetails() {
+    const detailView = document.getElementById('detailView');
+    const listWrapper = document.querySelector('.marine-list-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+
+    if (detailView) detailView.style.display = 'none';
+    if (listWrapper) listWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}
+</script>
+</div>
+</div>
 </section>
-<section id="key-planning-elements" class="level2">
-<h2 class="anchored" data-anchor-id="key-planning-elements">Key Planning Elements</h2>
-<ul>
-<li>Habitat mapping</li>
-<li>Species distribution</li>
-<li>Human use patterns</li>
-<li>Conservation priorities</li>
-<li>Climate change considerations</li>
-</ul>
 </section>
-<section id="integration-with-salmon-conservation" class="level2">
-<h2 class="anchored" data-anchor-id="integration-with-salmon-conservation">Integration with Salmon Conservation</h2>
-<p>How marine planning supports Pacific salmon conservation objectives: - Critical habitat protection - Migration corridor conservation - Feeding area management - Climate adaptation planning</p>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Marine planning documents, maps, and tools.</p>
+<section id="data-export" class="level2">
+<h2 class="anchored" data-anchor-id="data-export">Data Export</h2>
+<div id="5f0f6c73" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+
+<div class="export-section">
+    <h3 class="anchored">Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\n';
+
+    marineData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'marine_planning.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

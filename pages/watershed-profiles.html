@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,9 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/watershed_profiles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -165,17 +169,13 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#watershed-profiles" id="toc-watershed-profiles" class="nav-link active" data-scroll-target="#watershed-profiles">Watershed Profiles</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#watershed-categories" id="toc-watershed-categories" class="nav-link" data-scroll-target="#watershed-categories">Watershed Categories</a></li>
-  <li><a href="#profile-components" id="toc-profile-components" class="nav-link" data-scroll-target="#profile-components">Profile Components</a></li>
-  <li><a href="#interactive-maps" id="toc-interactive-maps" class="nav-link" data-scroll-target="#interactive-maps">Interactive Maps</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#search-and-filter" id="toc-search-and-filter" class="nav-link" data-scroll-target="#search-and-filter">Search and Filter</a></li>
+  <li><a href="#watershed-list" id="toc-watershed-list" class="nav-link" data-scroll-target="#watershed-list">Watershed List</a></li>
+  <li><a href="#data-export" id="toc-data-export" class="nav-link" data-scroll-target="#data-export">Data Export</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/watershed-profiles.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/watershed-profiles.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/dfo-pacific-science/psc_wiki/edit/main/pages/watershed-profiles.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/blob/main/pages/watershed-profiles.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/dfo-pacific-science/psc_wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,36 +199,287 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="watershed-profiles" class="level1">
-<h1>Watershed Profiles</h1>
-<p>This page contains detailed profiles of watersheds important for Pacific salmon conservation.</p>
+<div id="030ea04c" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Attempting to read file: ../assets/data/watershed_profiles.xlsx
+File exists: False
+Creating sample watershed data...
+Created sample data with 12 watershed records</code></pre>
+</div>
+</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Watershed profiles provide comprehensive information about the physical, biological, and management characteristics of salmon-bearing watersheds.</p>
+<p>This page contains profiles of <strong>Watershed Profiles</strong> for Pacific salmon conservation. The data includes information on 12 watersheds.</p>
 </section>
-<section id="watershed-categories" class="level2">
-<h2 class="anchored" data-anchor-id="watershed-categories">Watershed Categories</h2>
-<ul>
-<li>Major river systems</li>
-<li>Coastal watersheds</li>
-<li>Urban watersheds</li>
-<li>Transboundary watersheds</li>
-</ul>
+<section id="search-and-filter" class="level2">
+<h2 class="anchored" data-anchor-id="search-and-filter">Search and Filter</h2>
+<div id="79abd44c" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display no-overflow-x">
+
+<div class="search-controls">
+    <input type="text" id="searchInput" placeholder="Search watersheds..." onkeyup="filterList()">
+    <select id="speciesFilter" onchange="filterList()">
+        <option value="">All Species</option>
+    </select>
+    <select id="regionFilter" onchange="filterList()">
+        <option value="">All Regions</option>
+    </select>
+</div>
+</div>
+</div>
 </section>
-<section id="profile-components" class="level2">
-<h2 class="anchored" data-anchor-id="profile-components">Profile Components</h2>
-<p>Each watershed profile includes: - Physical characteristics - Habitat conditions - Species presence and abundance - Conservation status - Restoration activities - Management considerations</p>
+<section id="watershed-list" class="level2">
+<h2 class="anchored" data-anchor-id="watershed-list">Watershed List</h2>
+<section id="click-each-item-to-view-details" class="level6">
+<h6 class="anchored" data-anchor-id="click-each-item-to-view-details">Click each item to view details</h6>
+<div id="f402bcce" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="watershed-list-wrapper">
+<div id="watershedList" class="watershed-list">
+
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(0)" data-species="Chinook" data-region="Fraser">
+            <div class="watershed-name">Fraser River Watershed</div>
+            <div class="watershed-meta">Chinook • Fraser</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(1)" data-species="Coho" data-region="Fraser">
+            <div class="watershed-name">Thompson River Watershed</div>
+            <div class="watershed-meta">Coho • Fraser</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(2)" data-species="Chinook" data-region="Columbia">
+            <div class="watershed-name">Columbia River Watershed</div>
+            <div class="watershed-meta">Chinook • Columbia</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(3)" data-species="Chinook" data-region="North Coast">
+            <div class="watershed-name">Skeena River Watershed</div>
+            <div class="watershed-meta">Chinook • North Coast</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(4)" data-species="Chinook" data-region="North Coast">
+            <div class="watershed-name">Nass River Watershed</div>
+            <div class="watershed-meta">Chinook • North Coast</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(5)" data-species="Coho" data-region="North Coast">
+            <div class="watershed-name">Stikine River Watershed</div>
+            <div class="watershed-meta">Coho • North Coast</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(6)" data-species="Chinook" data-region="Fraser">
+            <div class="watershed-name">Taku River Watershed</div>
+            <div class="watershed-meta">Chinook • Fraser</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(7)" data-species="Coho" data-region="Fraser">
+            <div class="watershed-name">Alsek River Watershed</div>
+            <div class="watershed-meta">Coho • Fraser</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(8)" data-species="Chinook" data-region="Columbia">
+            <div class="watershed-name">Yukon River Watershed</div>
+            <div class="watershed-meta">Chinook • Columbia</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(9)" data-species="Chinook" data-region="North Coast">
+            <div class="watershed-name">Peace River Watershed</div>
+            <div class="watershed-meta">Chinook • North Coast</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(10)" data-species="Chinook" data-region="North Coast">
+            <div class="watershed-name">Athabasca River Watershed</div>
+            <div class="watershed-meta">Chinook • North Coast</div>
+        </div>
+        
+        <div class="watershed-item clickable-item" onclick="showWatershedDetails(11)" data-species="Coho" data-region="North Coast">
+            <div class="watershed-name">Mackenzie River Watershed</div>
+            <div class="watershed-meta">Coho • North Coast</div>
+        </div>
+        </div>
+</div>
+</div>
+</div>
+<div id="3ad23861" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+
+<div id="detailView" style="display: none;">
+    <button onclick="hideDetails()" class="back-button">← Back to List</button>
+    <div id="detailContent"></div>
+</div>
+</div>
+</div>
+<div id="d9baf8f5" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<script>
+const watershedData = [{"Watershed Name":"Fraser River Watershed","Region":"Fraser","Primary Species":"Chinook"},{"Watershed Name":"Thompson River Watershed","Region":"Fraser","Primary Species":"Coho"},{"Watershed Name":"Columbia River Watershed","Region":"Columbia","Primary Species":"Chinook"},{"Watershed Name":"Skeena River Watershed","Region":"North Coast","Primary Species":"Chinook"},{"Watershed Name":"Nass River Watershed","Region":"North Coast","Primary Species":"Chinook"},{"Watershed Name":"Stikine River Watershed","Region":"North Coast","Primary Species":"Coho"},{"Watershed Name":"Taku River Watershed","Region":"Fraser","Primary Species":"Chinook"},{"Watershed Name":"Alsek River Watershed","Region":"Fraser","Primary Species":"Coho"},{"Watershed Name":"Yukon River Watershed","Region":"Columbia","Primary Species":"Chinook"},{"Watershed Name":"Peace River Watershed","Region":"North Coast","Primary Species":"Chinook"},{"Watershed Name":"Athabasca River Watershed","Region":"North Coast","Primary Species":"Chinook"},{"Watershed Name":"Mackenzie River Watershed","Region":"North Coast","Primary Species":"Coho"}];
+const allColumns = ["Watershed Name", "Region", "Primary Species"];
+
+// Populate species and region filters
+window.addEventListener('DOMContentLoaded', function() {
+    const speciesFilter = document.getElementById('speciesFilter');
+    const regionFilter = document.getElementById('regionFilter');
+
+    if (speciesFilter && watershedData && watershedData.length > 0) {
+        const species = [...new Set(watershedData.map(item => item['Primary Species'] || item.species).filter(s => s && s !== 'N/A'))].sort();
+        species.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            speciesFilter.appendChild(option);
+        });
+    }
+
+    if (regionFilter && watershedData && watershedData.length > 0) {
+        const regions = [...new Set(watershedData.map(item => item.Region || item.region).filter(r => r && r !== 'N/A'))].sort();
+        regions.forEach(r => {
+            const option = document.createElement('option');
+            option.value = r;
+            option.textContent = r;
+            regionFilter.appendChild(option);
+        });
+    }
+});
+
+function filterList() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const speciesFilter = document.getElementById('speciesFilter').value;
+    const regionFilter = document.getElementById('regionFilter').value;
+    const items = document.querySelectorAll('.watershed-item');
+
+    items.forEach(item => {
+        let showItem = true;
+
+        // Search filter
+        if (searchTerm) {
+            const itemText = item.textContent.toLowerCase();
+            if (!itemText.includes(searchTerm)) {
+                showItem = false;
+            }
+        }
+
+        // Species filter
+        if (speciesFilter && item.dataset.species !== speciesFilter) {
+            showItem = false;
+        }
+
+        // Region filter
+        if (regionFilter && item.dataset.region !== regionFilter) {
+            showItem = false;
+        }
+
+        item.style.display = showItem ? 'block' : 'none';
+    });
+}
+
+function showWatershedDetails(index) {
+    // Safety checks
+    if (!watershedData || watershedData.length === 0 || index >= watershedData.length || index < 0) {
+        console.error('Invalid data or index for showWatershedDetails');
+        return;
+    }
+
+    const watershed = watershedData[index];
+    const detailView = document.getElementById('detailView');
+    const detailContent = document.getElementById('detailContent');
+
+    if (!watershed || !detailView || !detailContent) return;
+
+    let html = `<h2>${watershed['Watershed Name'] || 'Watershed Profile'}</h2>`;
+
+    // Planning Information
+    html += '<div class="detail-section"><h3><i>Integrated Planning Profile</i></h3>';
+    html += '<div class="planning-grid">';
+    html += '<div class="planning-item">';
+    html += '<h4>Document</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Planning document information</p>';
+    html += '</div></div>';
+    html += '<div class="planning-item">';
+    html += '<h4>Summary</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Planning summary</p>';
+    html += '</div></div>';
+    html += '<div class="planning-item">';
+    html += '<h4>Link</h4>';
+    html += '<div class="text-placeholder">';
+    html += '<p>Document link</p>';
+    html += '</div></div>';
+    html += '</div></div>';
+
+    html += '<div class="detail-section"><h3><i>Key Threats / Pressures</i></h3>';
+    html += '<table class="data-table">';
+    html += '<tbody>';
+    for (let i = 0; i < 3; i++) {
+        html += '<tr>';
+        for (let j = 0; j < 5; j++) {
+            html += '<td>&nbsp;</td>';
+        }
+        html += '</tr>';
+    }
+    html += '</tbody>';
+    html += '</table>';
+    html += '</div>';
+
+    detailContent.innerHTML = html;
+    document.querySelector('.watershed-list-wrapper').style.display = 'none';
+    document.querySelector('.search-controls').style.display = 'none';
+    detailView.style.display = 'block';
+}
+
+function hideDetails() {
+    const detailView = document.getElementById('detailView');
+    const listWrapper = document.querySelector('.watershed-list-wrapper');
+    const searchControls = document.querySelector('.search-controls');
+
+    if (detailView) detailView.style.display = 'none';
+    if (listWrapper) listWrapper.style.display = 'block';
+    if (searchControls) searchControls.style.display = 'flex';
+}
+</script>
+</div>
+</div>
 </section>
-<section id="interactive-maps" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-maps">Interactive Maps</h2>
-<p>Links to interactive watershed mapping tools and resources.</p>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Access to detailed watershed assessments and supporting data.</p>
+<section id="data-export" class="level2">
+<h2 class="anchored" data-anchor-id="data-export">Data Export</h2>
+<div id="a5e916dc" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+
+<div class="export-section">
+    <h3 class="anchored">Export Data</h3>
+    <button onclick="exportToCSV()" class="export-button">Download as CSV</button>
+</div>
+
+<script>
+function exportToCSV() {
+    const headers = allColumns;
+    let csvContent = headers.join(',') + '\n';
+
+    watershedData.forEach(row => {
+        const values = headers.map(header => {
+            const value = row[header] || '';
+            return '"' + String(value).replace(/"/g, '""') + '"';
+        });
+        csvContent += values.join(',') + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'watershed_profiles.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+    
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
